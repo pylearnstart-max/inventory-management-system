@@ -1,0 +1,33 @@
+# Sprint 1
+
+## Story ID
+**INV-101**
+
+### Title
+Setup Inventory Database and Product Table
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+Done
+
+---
+
+## Tasks
+
+- [x] Create InventoryDB
+- [x] Create Product Table
+- [x] Connect Python to SQL Server
+- [x] Verify Product Table
+- [x] Create db.py
+- [x] Create create_tables.py
+
+---
+
+## Git Commit
+
+INV-101 Setup InventoryDB and Product table
