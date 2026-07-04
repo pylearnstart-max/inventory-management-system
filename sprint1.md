@@ -31,3 +31,18 @@ Done
 ## Git Commit
 
 INV-101 Setup InventoryDB and Product table
+
+Story ID: INV-102
+
+Title: Implement Product Repository and Add Product
+
+Status: Done
+
+Tasks
+[x] Create ProductRepo
+[x] Create add_product()
+[x] Insert Product
+[x] Verify SQL Data
+
+Git Commit
+INV-102 Implement Product Repository and Add Product

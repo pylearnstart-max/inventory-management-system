@@ -1,2 +1,6 @@
+__pycache__/
+*.pyc
+.vscode/
+
 git add .gitignore
-git commit -m "INV-101 Add gitignore file"
+git commit -m "INV-101 Update gitignore"
