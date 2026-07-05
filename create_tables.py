@@ -26,3 +26,6 @@ cursor.close()
 conn.close()
 
 print("Product table created successfully.")
+
+# DAY 2
+
