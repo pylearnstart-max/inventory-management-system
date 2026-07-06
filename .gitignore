@@ -1,6 +1,8 @@
 __pycache__/
 *.pyc
 .vscode/
-
-git add .gitignore
-git commit -m "INV-101 Update gitignore"
+venv/
+.venv/
+.env
+Thumbs.db
+.DS_Store
