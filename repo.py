@@ -67,3 +67,27 @@ class ProductRepo:
         conn.close()
 
         return products
+
+
+    def get_product_by_id(self, product_id):
+
+        conn = get_connection()
+
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Product
+            WHERE product_id = ?
+            """,
+            (product_id,)
+        )
+
+        product = cursor.fetchone()
+
+        cursor.close()
+
+        conn.close()
+
+        return product

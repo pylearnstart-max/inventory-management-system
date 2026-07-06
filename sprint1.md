@@ -105,3 +105,50 @@ In Progress
 ## Git Commit
 
 INV-103 Implement Get All Products
+
+===================================================
+
+# Story ID
+**INV-104**
+
+## Title
+Get Product By ID
+
+## Priority
+High
+
+## Story Points
+3
+
+## Status
+In Progress
+
+---
+
+## User Story
+
+As an Inventory User,
+
+I want to search a product using its Product ID,
+
+So that I can view the details of a specific product.
+
+---
+
+## Tasks
+
+- [ ] Create get_product_by_id() in repo.py
+- [ ] Execute SELECT query with WHERE clause
+- [ ] Use parameterized query (?)
+- [ ] Use fetchone()
+- [ ] Create test_get_product_by_id.py
+- [ ] Test with existing Product ID
+- [ ] Test with non-existing Product ID
+- [ ] Verify output
+- [ ] Git Commit
+
+---
+
+## Git Commit
+
+INV-104 Implement Get Product By ID
