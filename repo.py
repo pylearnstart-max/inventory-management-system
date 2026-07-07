@@ -91,3 +91,43 @@ class ProductRepo:
         conn.close()
 
         return product
+
+
+    def update_product(self, product):
+
+        conn = get_connection()
+
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE Product
+            SET
+                product_name = ?,
+                category = ?,
+                brand = ?,
+                unit_price = ?,
+                quantity = ?,
+                supplier_name = ?,
+                created_date = ?
+            WHERE product_id = ?
+            """,
+            (
+                product.product_name,
+                product.category,
+                product.brand,
+                product.unit_price,
+                product.quantity,
+                product.supplier_name,
+                product.created_date,
+                product.product_id
+            )
+        )
+
+        conn.commit()
+
+        cursor.close()
+
+        conn.close()
+
+        print("Product Updated Successfully")

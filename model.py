@@ -2,6 +2,7 @@ class Product:
 
     def __init__(
             self,
+            product_id,
             product_name,
             category,
             brand,
@@ -10,6 +11,7 @@ class Product:
             supplier_name,
             created_date):
 
+        self.product_id = product_id
         self.product_name = product_name
         self.category = category
         self.brand = brand
