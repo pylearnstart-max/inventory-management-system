@@ -2,6 +2,7 @@ from model import Product
 from repo import ProductRepo
 
 product = Product(
+    None,
     "Laptop",
     "Electronics",
     "Dell",

@@ -131,3 +131,26 @@ class ProductRepo:
         conn.close()
 
         print("Product Updated Successfully")
+
+
+    def delete_product(self, product_id):
+
+        conn = get_connection()
+
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            DELETE FROM Product
+            WHERE product_id = ?
+            """,
+            (product_id,)
+        )
+
+        conn.commit()
+
+        cursor.close()
+
+        conn.close()
+
+        print("Product Deleted Successfully")
