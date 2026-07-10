@@ -1,5 +1,6 @@
 from model import Product
 from service import ProductService
+from exceptions import ProductValidationError
 
 service = ProductService()
 
@@ -10,7 +11,7 @@ def test_product(product):
         service.add_product(product)
         print("Validation Passed")
 
-    except ValueError as e:
+    except ProductValidationError as e:
         print(e)
 
 

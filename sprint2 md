@@ -1,0 +1,32 @@
+# Story ID
+## INV-201
+
+### Title
+Implement Product Validation
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Create ProductValidator
+- [x] Validate Product Name
+- [x] Validate Category
+- [x] Validate Brand
+- [x] Validate Unit Price
+- [x] Validate Quantity
+- [x] Validate Supplier Name
+- [x] Validate Created Date
+- [x] Update ProductService
+- [x] Create test_validation.py
+- [x] Verify Validation
+
+### Git Commit
+
+INV-201 Implement Product Validation
