@@ -1,5 +1,6 @@
 from repo import ProductRepo
 from validation import ProductValidator
+from logger import logger
 
 
 class ProductService:
@@ -10,6 +11,7 @@ class ProductService:
     def add_product(self, product):
         ProductValidator.validate(product)
         self.repo.add_product(product)
+        logger.info(f"Product Added : {product.product_name}")
 
     def get_all_products(self):
         return self.repo.get_all_products()
@@ -20,6 +22,8 @@ class ProductService:
     def update_product(self, product):
         ProductValidator.validate(product)
         self.repo.update_product(product)
+        logger.info(f"Product Updated : {product.product_name}")
 
     def delete_product(self, product_id):
         self.repo.delete_product(product_id)
+        logger.info(f"Product Deleted : {product_id}")

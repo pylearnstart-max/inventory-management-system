@@ -30,3 +30,63 @@ High
 ### Git Commit
 
 INV-201 Implement Product Validation
+
+---
+
+# Story ID
+## INV-202
+
+### Title
+Implement Custom Exception Handling
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Create exceptions.py
+- [x] Create ProductValidationError class
+- [x] Inherit from Exception class
+- [x] Update validation.py
+- [x] Replace ValueError with ProductValidationError
+- [x] Update test_validation.py
+- [x] Catch ProductValidationError
+- [x] Execute validation test cases
+- [x] Verify custom exception handling
+- [x] Verify valid product insertion
+
+### Files Created
+
+- exceptions.py
+
+### Files Updated
+
+- validation.py
+- test_validation.py
+
+### Testing
+
+- [x] Empty Product Name
+- [x] Empty Category
+- [x] Empty Brand
+- [x] Invalid Unit Price
+- [x] Invalid Quantity
+- [x] Empty Supplier Name
+- [x] Empty Created Date
+- [x] Valid Product
+
+### Result
+
+All validation errors are handled using the custom `ProductValidationError` exception, and valid products are inserted successfully.
+
+### Git Commit
+
+```
+INV-202 Implement Custom Exception Handling
+```

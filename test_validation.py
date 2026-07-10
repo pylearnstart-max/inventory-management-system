@@ -1,6 +1,7 @@
 from model import Product
 from service import ProductService
 from exceptions import ProductValidationError
+from logger import logger
 
 service = ProductService()
 
@@ -12,8 +13,8 @@ def test_product(product):
         print("Validation Passed")
 
     except ProductValidationError as e:
+        logger.error(str(e))
         print(e)
-
 
 print("========== Test Case 1 : Empty Product Name ==========")
 

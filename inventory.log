@@ -1,0 +1,8 @@
+2026-07-10 17:43:54,659 - ERROR - Product Name cannot be empty.
+2026-07-10 17:43:54,679 - ERROR - Category cannot be empty.
+2026-07-10 17:43:54,696 - ERROR - Brand cannot be empty.
+2026-07-10 17:43:54,714 - ERROR - Unit Price must be greater than 0.
+2026-07-10 17:43:54,776 - ERROR - Quantity cannot be negative.
+2026-07-10 17:43:54,785 - ERROR - Supplier Name cannot be empty.
+2026-07-10 17:43:54,828 - ERROR - Created Date cannot be empty.
+2026-07-10 17:43:54,949 - INFO - Product Added : Laptop
