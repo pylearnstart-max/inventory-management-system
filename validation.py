@@ -6,6 +6,13 @@ class ProductValidator:
     @staticmethod
     def validate(product):
 
+    
+        product.product_name = product.product_name.strip()
+        product.category = product.category.strip()
+        product.brand = product.brand.strip()
+        product.supplier_name = product.supplier_name.strip()
+        product.created_date = product.created_date.strip()
+
         if not product.product_name.strip():
             raise ProductValidationError("Product Name cannot be empty.")
 

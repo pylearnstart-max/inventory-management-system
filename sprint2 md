@@ -90,3 +90,61 @@ All validation errors are handled using the custom `ProductValidationError` exce
 ```
 INV-202 Implement Custom Exception Handling
 ```
+---
+
+# Story ID
+## INV-203
+
+### Title
+Implement Logging
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Create logger.py
+- [x] Configure Python logging module
+- [x] Create logger object
+- [x] Configure inventory.log file
+- [x] Update service.py
+- [x] Log Product Added operation
+- [x] Log Product Updated operation
+- [x] Log Product Deleted operation
+- [x] Update test_validation.py
+- [x] Log validation errors
+- [x] Execute test_validation.py
+- [x] Verify log file generation
+
+### Files Created
+
+- logger.py
+
+### Files Updated
+
+- service.py
+- test_validation.py
+
+### Testing
+
+- [x] Log Product Added
+- [x] Log Product Updated
+- [x] Log Product Deleted
+- [x] Log Validation Errors
+- [x] Verify inventory.log file
+
+### Result
+
+Successfully implemented logging using Python's `logging` module. Product operations and validation errors are recorded in `inventory.log` for monitoring and debugging.
+
+### Git Commit
+
+```text
+INV-203 Implement Logging
+```
