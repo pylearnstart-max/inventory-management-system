@@ -148,3 +148,111 @@ Successfully implemented logging using Python's `logging` module. Product operat
 ```text
 INV-203 Implement Logging
 ```
+---
+
+# Story ID
+## INV-204
+
+### Title
+Implement Input Sanitization
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Update validation.py
+- [x] Remove leading spaces from Product Name
+- [x] Remove trailing spaces from Product Name
+- [x] Remove leading and trailing spaces from Category
+- [x] Remove leading and trailing spaces from Brand
+- [x] Remove leading and trailing spaces from Supplier Name
+- [x] Remove leading and trailing spaces from Created Date
+- [x] Validate sanitized input
+- [x] Create test_sanitization.py
+- [x] Execute sanitization test
+- [x] Verify sanitized data before saving
+
+### Files Created
+
+- test_sanitization.py
+
+### Files Updated
+
+- validation.py
+
+### Testing
+
+- [x] Product Name with extra spaces
+- [x] Category with extra spaces
+- [x] Brand with extra spaces
+- [x] Supplier Name with extra spaces
+- [x] Created Date with extra spaces
+- [x] Verify spaces are removed
+- [x] Verify product is saved successfully
+
+### Result
+
+Successfully implemented input sanitization. All leading and trailing spaces are automatically removed from user input before validation and database insertion, ensuring clean and consistent data storage.
+
+### Git Commit
+
+```text
+INV-204 Implement Input Sanitization
+```
+---
+
+# Story ID
+## INV-205
+
+### Title
+Implement Product Search by Name
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Add search_product_by_name() in Product Repository
+- [x] Implement SQL LIKE query
+- [x] Search products using product name
+- [x] Add search_product_by_name() in Product Service Layer
+- [x] Create test_search_product.py
+- [x] Execute search test
+- [x] Verify matching products are displayed
+- [x] Test multiple matching products
+
+### Files Created
+
+- test_search_product.py
+
+### Files Updated
+
+- repo.py
+- service.py
+
+### Testing
+
+- [x] Search existing product
+- [x] Display multiple matching products
+- [x] Verify SQL Server output
+
+### Result
+
+Successfully implemented product search functionality. Users can search products using product name, and matching records are retrieved from SQL Server using the LIKE query.
+
+### Git Commit
+
+INV-205 Implement Product Search by Name

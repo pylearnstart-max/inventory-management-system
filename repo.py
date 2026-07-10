@@ -154,3 +154,26 @@ class ProductRepo:
         conn.close()
 
         print("Product Deleted Successfully")
+        
+    def search_product_by_name(self, product_name):
+
+        conn = get_connection()
+
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Product
+            WHERE product_name LIKE ?
+            """,
+            ('%' + product_name + '%',)
+        )
+
+        products = cursor.fetchall()
+
+        cursor.close()
+
+        conn.close()
+
+        return products

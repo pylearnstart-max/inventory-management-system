@@ -27,3 +27,6 @@ class ProductService:
     def delete_product(self, product_id):
         self.repo.delete_product(product_id)
         logger.info(f"Product Deleted : {product_id}")
+
+    def search_product_by_name(self, product_name):
+        return self.repo.search_product_by_name(product_name)
