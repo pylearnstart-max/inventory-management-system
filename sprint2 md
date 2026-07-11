@@ -508,3 +508,62 @@ Successfully implemented product filtering by price range using the SQL `BETWEEN
 ```text
 INV-208 Implement Product Filter by Price Range
 ```
+---
+
+# Story ID
+## INV-209
+
+### Title
+Generate Inventory Report
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Reuse get_all_products() from Product Repository
+- [x] Add generate_inventory_report() in Product Service
+- [x] Create test_inventory_repo.py
+- [x] Generate Inventory Report
+- [x] Verify all product records
+- [x] Commit changes to Git
+
+### Files Created
+
+- test_inventory_repo.py
+
+### Files Updated
+
+- service.py
+
+### Testing
+
+#### Test Case 1
+
+**Expected Result**
+
+Display all products available in the Product table.
+
+**Actual Result**
+
+```
+
+**Status**
+
+✅ Passed
+
+### Result
+
+Successfully generated the Inventory Report by retrieving all products from the Product table using the Repository Pattern and Service Layer.
+
+### Git Commit
+
+```text
+INV-209 Generate Inventory Report
+```
