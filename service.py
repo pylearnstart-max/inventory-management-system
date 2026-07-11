@@ -30,3 +30,6 @@ class ProductService:
 
     def search_product_by_name(self, product_name):
         return self.repo.search_product_by_name(product_name)
+    
+    def filter_products_by_category(self, category):
+        return self.repo.filter_products_by_category(category)

@@ -6,7 +6,6 @@ class ProductRepo:
     def add_product(self, product):
 
         conn = get_connection()
-
         cursor = conn.cursor()
 
         cursor.execute(
@@ -41,7 +40,6 @@ class ProductRepo:
         conn.commit()
 
         cursor.close()
-
         conn.close()
 
         print("Product Added Successfully")
@@ -50,7 +48,6 @@ class ProductRepo:
     def get_all_products(self):
 
         conn = get_connection()
-
         cursor = conn.cursor()
 
         cursor.execute(
@@ -63,7 +60,6 @@ class ProductRepo:
         products = cursor.fetchall()
 
         cursor.close()
-
         conn.close()
 
         return products
@@ -72,7 +68,6 @@ class ProductRepo:
     def get_product_by_id(self, product_id):
 
         conn = get_connection()
-
         cursor = conn.cursor()
 
         cursor.execute(
@@ -87,7 +82,6 @@ class ProductRepo:
         product = cursor.fetchone()
 
         cursor.close()
-
         conn.close()
 
         return product
@@ -96,7 +90,6 @@ class ProductRepo:
     def update_product(self, product):
 
         conn = get_connection()
-
         cursor = conn.cursor()
 
         cursor.execute(
@@ -127,7 +120,6 @@ class ProductRepo:
         conn.commit()
 
         cursor.close()
-
         conn.close()
 
         print("Product Updated Successfully")
@@ -136,7 +128,6 @@ class ProductRepo:
     def delete_product(self, product_id):
 
         conn = get_connection()
-
         cursor = conn.cursor()
 
         cursor.execute(
@@ -150,15 +141,14 @@ class ProductRepo:
         conn.commit()
 
         cursor.close()
-
         conn.close()
 
         print("Product Deleted Successfully")
-        
+
+
     def search_product_by_name(self, product_name):
 
         conn = get_connection()
-
         cursor = conn.cursor()
 
         cursor.execute(
@@ -173,7 +163,28 @@ class ProductRepo:
         products = cursor.fetchall()
 
         cursor.close()
+        conn.close()
 
+        return products
+
+
+    def filter_products_by_category(self, category):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Product
+            WHERE category = ?
+            """,
+            (category,)
+        )
+
+        products = cursor.fetchall()
+
+        cursor.close()
         conn.close()
 
         return products
