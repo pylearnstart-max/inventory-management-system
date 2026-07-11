@@ -256,3 +256,255 @@ Successfully implemented product search functionality. Users can search products
 ### Git Commit
 
 INV-205 Implement Product Search by Name
+
+---
+
+# Story ID
+## INV-206
+
+### Title
+Implement Product Filter by Category
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Add filter_products_by_category() in Product Repository
+- [x] Write SQL query using WHERE category = ?
+- [x] Fetch products based on category
+- [x] Add filter_products_by_category() in Product Service
+- [x] Create test_filter_product.py
+- [x] Execute filter test
+- [x] Display matching products
+- [x] Handle "No Products Found" scenario
+
+### Files Created
+
+- test_filter_product.py
+
+### Files Updated
+
+- repo.py
+- service.py
+
+### Testing
+
+#### Test Case 1
+
+**Input**
+
+```text
+Electronics
+```
+
+**Expected Result**
+
+- Display all products whose category is **Electronics**.
+
+**Status**
+
+✅ Passed
+
+---
+
+#### Test Case 2
+
+**Input**
+
+```text
+Furniture
+```
+
+**Expected Result**
+
+- Display **No Products Found.**
+
+**Status**
+
+✅ Passed
+
+### Result
+
+Successfully implemented product filtering by category. Users can retrieve all products belonging to a selected category using the repository and service layers. The functionality correctly handles both matching and non-matching categories.
+
+### Git Commit
+
+```text
+INV-206 Implement Product Filter by Category
+```
+---
+
+# Story ID
+## INV-207
+
+### Title
+Implement Product Filter by Brand
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Add filter_products_by_brand() in Product Repository
+- [x] Implement SQL query using WHERE brand = ?
+- [x] Add filter_products_by_brand() in Product Service
+- [x] Create test_brand_filter.py
+- [x] Test with existing brand
+- [x] Test with non-existing brand
+- [x] Verify output
+- [x] Commit changes to Git
+
+### Files Created
+
+- test_brand_filter.py
+
+### Files Updated
+
+- repo.py
+- service.py
+
+### Testing
+
+#### Test Case 1
+
+**Input**
+
+```text
+dell
+```
+
+**Output**
+
+
+
+**Status**
+
+✅ Passed
+
+---
+
+#### Test Case 2
+
+**Input**
+
+```text
+lenevo
+```
+
+**Output**
+
+```
+No Products Found.
+```
+
+**Status**
+
+✅ Passed
+
+### Result
+
+Successfully implemented Product Filter by Brand using the Repository Pattern. Users can search products by brand name, and the system correctly handles both matching and non-matching brands.
+
+### Git Commit
+
+```text
+INV-207 Implement Product Filter by Brand
+
+```
+---
+
+# Story ID
+## INV-208
+
+### Title
+Implement Product Filter by Price Range
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Done
+
+### Tasks
+
+- [x] Add filter_products_by_price() in Product Repository
+- [x] Write SQL query using BETWEEN
+- [x] Add filter_products_by_price() in Product Service
+- [x] Create test_filter_price.py
+- [x] Test with valid price range
+- [x] Test with invalid price range
+- [x] Verify output
+- [x] Commit changes to Git
+
+### Files Created
+
+- test_filter_price.py
+
+### Files Updated
+
+- repo.py
+- service.py
+
+### Testing
+
+#### Test Case 1
+
+**Input**
+
+```text
+Minimum Price: 55000
+Maximum Price: 55000
+```
+
+**Expected Result**
+
+Display all products priced between ₹55,000 and ₹55,000.
+
+**Status**
+
+✅ Passed
+
+---
+
+#### Test Case 2
+
+**Input**
+
+```text
+Minimum Price: 100
+Maximum Price: 200
+```
+
+**Expected Result**
+
+Display **No Products Found.**
+
+**Status**
+
+✅ Passed
+
+### Result
+
+Successfully implemented product filtering by price range using the SQL `BETWEEN` operator. The system correctly retrieves products within the specified range and handles cases where no products match.
+
+### Git Commit
+
+```text
+INV-208 Implement Product Filter by Price Range
+```

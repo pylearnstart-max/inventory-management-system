@@ -145,29 +145,6 @@ class ProductRepo:
 
         print("Product Deleted Successfully")
 
-
-    def search_product_by_name(self, product_name):
-
-        conn = get_connection()
-        cursor = conn.cursor()
-
-        cursor.execute(
-            """
-            SELECT *
-            FROM Product
-            WHERE product_name LIKE ?
-            """,
-            ('%' + product_name + '%',)
-        )
-
-        products = cursor.fetchall()
-
-        cursor.close()
-        conn.close()
-
-        return products
-
-
     def filter_products_by_category(self, category):
 
         conn = get_connection()
@@ -180,6 +157,48 @@ class ProductRepo:
             WHERE category = ?
             """,
             (category,)
+        )
+
+        products = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return products
+
+
+    def filter_products_by_brand(self, brand):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Product
+            WHERE brand = ?
+            """,
+            (brand,)
+        )
+
+        products = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return products
+    def filter_products_by_price(self, min_price, max_price):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Product
+            WHERE unit_price BETWEEN ? AND ?
+            """,
+            (min_price, max_price)
         )
 
         products = cursor.fetchall()

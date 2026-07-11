@@ -33,3 +33,9 @@ class ProductService:
     
     def filter_products_by_category(self, category):
         return self.repo.filter_products_by_category(category)
+    
+    def filter_products_by_brand(self, brand):
+        return self.repo.filter_products_by_brand(brand)
+
+    def filter_products_by_price(self, min_price, max_price):
+        return self.repo.filter_products_by_price(min_price, max_price)
