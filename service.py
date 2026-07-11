@@ -39,3 +39,6 @@ class ProductService:
 
     def filter_products_by_price(self, min_price, max_price):
         return self.repo.filter_products_by_price(min_price, max_price)
+
+    def generate_inventory_report(self):
+        return self.repo.get_all_products()
