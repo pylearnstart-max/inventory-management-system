@@ -30,15 +30,20 @@ class ProductService:
 
     def search_product_by_name(self, product_name):
         return self.repo.search_product_by_name(product_name)
-    
+
     def filter_products_by_category(self, category):
         return self.repo.filter_products_by_category(category)
-    
+
     def filter_products_by_brand(self, brand):
         return self.repo.filter_products_by_brand(brand)
 
     def filter_products_by_price(self, min_price, max_price):
         return self.repo.filter_products_by_price(min_price, max_price)
 
-    def generate_inventory_report(self):
-        return self.repo.get_all_products()
+    def stock_in(self, product_id, quantity):
+        self.repo.stock_in(product_id, quantity)
+        logger.info(f"Stock Added : Product ID = {product_id}, Quantity = {quantity}")
+
+    def stock_out(self, product_id, quantity):
+        self.repo.stock_out(product_id, quantity)
+        logger.info(f"Stock Removed : Product ID = {product_id}, Quantity = {quantity}")

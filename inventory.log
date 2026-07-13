@@ -7,3 +7,6 @@
 2026-07-10 17:43:54,828 - ERROR - Created Date cannot be empty.
 2026-07-10 17:43:54,949 - INFO - Product Added : Laptop
 2026-07-10 17:53:10,688 - INFO - Product Added : Laptop
+2026-07-12 12:33:50,364 - INFO - Stock Added : Product ID = 5, Quantity = 7
+2026-07-12 12:46:28,028 - INFO - Stock Added : Product ID = 3, Quantity = 5
+2026-07-12 12:52:11,684 - INFO - Stock Removed : Product ID = 1, Quantity = 2

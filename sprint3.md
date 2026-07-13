@@ -31,3 +31,49 @@ High
 ### Result
 
 StockTransaction table created successfully and verified.
+
+# Story ID
+
+## INV-302
+
+### Title
+Implement Stock In (Add Stock)
+
+### Priority
+High
+
+### Story Points
+3
+
+### Status
+🟡 In Progress
+
+### Tasks
+
+- [ ] Create stock_in() in repo.py
+- [ ] Create stock_in() in service.py
+- [ ] Create test_stock_in.py
+- [ ] Update product quantity
+- [ ] Verify stock update
+
+## INV-303
+
+### Title
+Implement Stock Out (Remove Stock)
+
+### Priority
+High
+
+### Story Points
+3
+
+### Status
+🟡 In Progress
+
+### Tasks
+
+- [ ] Create stock_out() in repo.py
+- [ ] Create stock_out() in service.py
+- [ ] Create test_stock_out.py
+- [ ] Verify quantity updated
+- [ ] Commit to Git
