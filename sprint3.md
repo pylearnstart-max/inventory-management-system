@@ -209,3 +209,20 @@ High
 
 ---
 
+Story ID : INV-305
+
+Title : View Stock Transaction History
+
+Priority : High
+
+Story Points : 3
+
+Status : ✅ Completed
+
+Tasks
+
+[x] Create get_all_transactions() in stock_repo.py
+[x] Create get_all_transactions() in stock_service.py
+[x] Create test_transaction_history.py
+[x] Verify transaction history
+[x] Commit to Git

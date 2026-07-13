@@ -275,3 +275,71 @@ class ProductRepo:
       conn.close()
 
     print("Stock Removed Successfully")
+
+    def stock_out(self, product_id, quantity):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE Product
+            SET quantity = quantity - ?
+            WHERE product_id = ?
+            """,
+            (quantity, product_id)
+        )
+
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+        print("Stock Removed Successfully")
+
+
+    def get_low_stock_products(self, limit):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Product
+            WHERE quantity <= ?
+            ORDER BY quantity
+            """,
+            (limit,)
+        )
+
+        products = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return products
+
+
+    def get_inventory_dashboard(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT
+                COUNT(*) AS TotalProducts,
+                SUM(quantity) AS TotalQuantity,
+                SUM(quantity * unit_price) AS TotalInventoryValue
+            FROM Product
+            """
+        )
+
+        dashboard = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return dashboard
+

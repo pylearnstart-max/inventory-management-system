@@ -11,3 +11,8 @@ class StockService:
 
     def get_all_transactions(self):
         return self.repo.get_all_transactions()
+
+    def get_low_stock_products(self, limit):
+        return self.repo.get_low_stock_products(limit)
+    def get_inventory_dashboard(self):
+        return self.repo.get_inventory_dashboard()

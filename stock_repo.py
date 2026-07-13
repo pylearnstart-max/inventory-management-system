@@ -17,7 +17,6 @@ class StockRepo:
                 quantity,
                 transaction_date
             )
-
             VALUES
             (
                 ?, ?, ?, ?
@@ -58,3 +57,4 @@ class StockRepo:
         conn.close()
 
         return transactions
+    
