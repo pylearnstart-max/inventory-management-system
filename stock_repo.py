@@ -6,7 +6,6 @@ class StockRepo:
     def add_transaction(self, transaction):
 
         conn = get_connection()
-
         cursor = conn.cursor()
 
         cursor.execute(
@@ -35,7 +34,27 @@ class StockRepo:
         conn.commit()
 
         cursor.close()
-
         conn.close()
 
         print("Transaction Saved Successfully")
+
+
+    def get_all_transactions(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM StockTransaction
+            ORDER BY transaction_id
+            """
+        )
+
+        transactions = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return transactions

@@ -77,3 +77,135 @@ High
 - [ ] Create test_stock_out.py
 - [ ] Verify quantity updated
 - [ ] Commit to Git
+# Sprint 3
+
+## Sprint Goal
+
+Implement Stock Management Module for the Inventory Management System.
+
+---
+
+# Story ID
+
+## INV-301
+
+### Title
+
+Create StockTransaction Table
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create StockTransaction table
+* [x] Add Primary Key
+* [x] Add Foreign Key with Product table
+* [x] Verify table creation
+* [x] Commit to Git
+
+---
+
+# Story ID
+
+## INV-302
+
+### Title
+
+Implement Stock In (Add Stock)
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create stock_in() in repo.py
+* [x] Create stock_in() in service.py
+* [x] Create test_stock_in.py
+* [x] Update product quantity
+* [x] Verify in SQL Server
+* [x] Commit to Git
+
+---
+
+# Story ID
+
+## INV-303
+
+### Title
+
+Implement Stock Out (Remove Stock)
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create stock_out() in repo.py
+* [x] Create stock_out() in service.py
+* [x] Create test_stock_out.py
+* [x] Reduce product quantity
+* [x] Verify in SQL Server
+* [x] Commit to Git
+
+---
+
+# Story ID
+
+## INV-304
+
+### Title
+
+Record Stock Transactions
+
+### Priority
+
+High
+
+### Story Points
+
+5
+
+### Status
+
+🟡 In Progress
+
+### Tasks
+
+* [ ] Create stock_model.py
+* [ ] Create stock_repo.py
+* [ ] Create stock_service.py
+* [ ] Create test_stock_transaction.py
+* [ ] Insert transaction into StockTransaction table
+* [ ] Verify in SQL Server
+* [ ] Commit to Git
+
+---
+
