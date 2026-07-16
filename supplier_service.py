@@ -15,3 +15,6 @@ class SupplierService:
     def search_supplier(self, supplier_name):
 
         return self.repo.search_supplier(supplier_name)
+    def update_supplier(self, supplier):
+
+        self.repo.update_supplier(supplier)

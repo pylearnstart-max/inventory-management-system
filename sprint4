@@ -115,3 +115,74 @@ High
 ### Result
 
 Successfully implemented the View All Suppliers feature. The system retrieves and displays all supplier records from the `Supplier` table using the Repository Pattern. The functionality was verified in SQL Server and tested successfully before committing to Git.
+# Story ID
+
+## INV-404
+
+### Title
+
+Search Supplier
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create `search_supplier()` in `supplier_repo.py`
+* [x] Create `search_supplier()` in `supplier_service.py`
+* [x] Create `test_search_supplier.py`
+* [x] Search supplier by supplier name
+* [x] Retrieve matching supplier details from the `Supplier` table
+* [x] Display search results
+* [x] Verify search results in SQL Server
+* [x] Test Search Supplier functionality
+* [x] Verify Repository Pattern implementation
+* [x] Commit to Git
+
+### Result
+
+Successfully implemented the Search Supplier feature. The system searches suppliers by name using the Repository Pattern and retrieves matching records from the `Supplier` table. The functionality was verified in SQL Server, tested successfully, and committed to Git.
+# Story ID
+
+## INV-405
+
+### Title
+
+Update Supplier
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Update `supplier_model.py` to include `supplier_id`
+* [x] Create `update_supplier()` in `supplier_repo.py`
+* [x] Create `update_supplier()` in `supplier_service.py`
+* [x] Create `test_update_supplier.py`
+* [x] Update supplier details in the `Supplier` table
+* [x] Verify updated supplier data in SQL Server
+* [x] Test Update Supplier functionality
+* [x] Verify Repository Pattern implementation
+* [x] Commit to Git
+
+### Result
+
+Successfully implemented the Update Supplier feature. The system updates supplier information using the Repository Pattern and stores the modified details in the `Supplier` table. The updated data was verified in SQL Server, tested successfully, and committed to Git.

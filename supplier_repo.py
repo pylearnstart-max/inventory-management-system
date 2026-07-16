@@ -83,3 +83,37 @@ class SupplierRepo:
         conn.close()
 
         return suppliers
+    def update_supplier(self, supplier):   
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            UPDATE Supplier
+            SET
+            supplier_name = ?,
+            contact_person = ?,
+            phone = ?,
+            email = ?,
+            address = ?,
+            created_date = ?
+        WHERE supplier_id = ?
+        """,
+        (
+            supplier.supplier_name,
+            supplier.contact_person,
+            supplier.phone,
+            supplier.email,
+            supplier.address,
+            supplier.created_date,
+            supplier.supplier_id
+        )
+    )
+
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+    print("Supplier Updated Successfully")
