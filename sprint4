@@ -221,3 +221,37 @@ High
 ### Result
 
 Successfully implemented the Delete Supplier feature. The system deletes supplier records using the Repository Pattern based on the `supplier_id`. The functionality was tested successfully, verified in SQL Server, and committed to Git.
+# Story ID
+
+## INV-407
+
+### Title
+
+Supplier Report
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create `get_supplier_report()` in `supplier_repo.py`
+* [x] Create `get_supplier_report()` in `supplier_service.py`
+* [x] Create `test_supplier_report.py`
+* [x] Display supplier report sorted by supplier name
+* [x] Verify report in SQL Server
+* [x] Test Supplier Report functionality
+* [x] Verify Repository Pattern implementation
+* [x] Commit to Git
+
+### Result
+
+Successfully implemented the Supplier Report feature. The system retrieves and displays all supplier records from the `Supplier` table in sorted order. If no supplier records are available, the system displays **"No Suppliers Found"**. The functionality was tested successfully, verified in SQL Server, and committed to Git.
