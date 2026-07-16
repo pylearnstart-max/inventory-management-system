@@ -1,0 +1,82 @@
+# Sprint 4
+
+## Sprint Goal
+
+Implement Supplier Management Module using Python, SQL Server, and Repository Pattern.
+
+---
+
+# Story ID
+
+## INV-401
+
+### Title
+
+Create Supplier Table
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create `create_supplier_table.py`
+* [x] Create `Supplier` table in SQL Server
+* [x] Add `supplier_id` as Primary Key
+* [x] Create `supplier_name` column
+* [x] Create `contact_person` column
+* [x] Create `phone` column
+* [x] Create `email` column
+* [x] Create `address` column
+* [x] Create `created_date` column
+* [x] Verify table creation in SQL Server
+* [x] Commit to Git
+
+### Result
+
+The `Supplier` table was successfully created in SQL Server with all required columns and a primary key. The table creation was verified successfully and committed to Git.
+
+# Story ID
+
+## INV-402
+
+### Title
+
+Implement Add Supplier
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+🟡 In Progress
+
+### Tasks
+
+* [ ] Create `supplier_model.py`
+* [ ] Create `supplier_repo.py`
+* [ ] Create `supplier_service.py`
+* [ ] Create `test_supplier.py`
+* [ ] Implement `add_supplier()` in `supplier_repo.py`
+* [ ] Implement `add_supplier()` in `supplier_service.py`
+* [ ] Insert supplier data into the `Supplier` table
+* [ ] Verify inserted data in SQL Server
+* [ ] Test Add Supplier functionality
+* [ ] Commit to Git
+
+### Result
+
+Successfully implemented the Add Supplier functionality. The system allows users to add new supplier details to the `Supplier` table through the Repository Pattern. The data is successfully stored in SQL Server after validation and testing.
