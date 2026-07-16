@@ -19,7 +19,6 @@ class SupplierRepo:
                 address,
                 created_date
             )
-
             VALUES
             (
                 ?, ?, ?, ?, ?, ?
@@ -41,3 +40,24 @@ class SupplierRepo:
         conn.close()
 
         print("Supplier Added Successfully")
+
+
+    def get_all_suppliers(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Supplier
+            ORDER BY supplier_id
+            """
+        )
+
+        suppliers = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return suppliers
