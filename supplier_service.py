@@ -11,3 +11,7 @@ class SupplierService:
 
     def get_all_suppliers(self):
         return self.repo.get_all_suppliers()
+
+    def search_supplier(self, supplier_name):
+
+        return self.repo.search_supplier(supplier_name)

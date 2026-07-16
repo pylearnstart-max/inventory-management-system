@@ -61,3 +61,25 @@ class SupplierRepo:
         conn.close()
 
         return suppliers
+
+
+    def search_supplier(self, supplier_name):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Supplier
+            WHERE supplier_name LIKE ?
+            """,
+            ('%' + supplier_name + '%',)
+        )
+
+        suppliers = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return suppliers

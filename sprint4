@@ -80,3 +80,38 @@ High
 ### Result
 
 Successfully implemented the Add Supplier functionality. The system allows users to add new supplier details to the `Supplier` table through the Repository Pattern. The data is successfully stored in SQL Server after validation and testing.
+# Story ID
+
+## INV-403
+
+### Title
+
+View All Suppliers
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create `get_all_suppliers()` in `supplier_repo.py`
+* [x] Create `get_all_suppliers()` in `supplier_service.py`
+* [x] Create `test_get_all_suppliers.py`
+* [x] Retrieve all supplier records from the `Supplier` table
+* [x] Display supplier details
+* [x] Verify supplier data in SQL Server
+* [x] Test View All Suppliers functionality
+* [x] Verify Repository Pattern implementation
+* [x] Commit to Git
+
+### Result
+
+Successfully implemented the View All Suppliers feature. The system retrieves and displays all supplier records from the `Supplier` table using the Repository Pattern. The functionality was verified in SQL Server and tested successfully before committing to Git.
