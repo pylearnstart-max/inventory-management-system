@@ -21,3 +21,6 @@ class SupplierService:
     def delete_supplier(self, supplier_id):
 
         self.repo.delete_supplier(supplier_id)
+    def get_supplier_report(self):
+
+        self.repo.get_supplier_report()

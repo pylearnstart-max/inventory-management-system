@@ -98,42 +98,54 @@ class SupplierRepo:
             email = ?,
             address = ?,
             created_date = ?
-        WHERE supplier_id = ?
-        """,
-        (
-            supplier.supplier_name,
-            supplier.contact_person,
-            supplier.phone,
-            supplier.email,
-            supplier.address,
-            supplier.created_date,
-            supplier.supplier_id
+            WHERE supplier_id = ?
+            """,
+            (
+                supplier.supplier_name,
+                supplier.contact_person,
+                supplier.phone,
+                supplier.email,
+                supplier.address,
+                supplier.created_date,
+                supplier.supplier_id
+            )
         )
-    )
 
         conn.commit()
 
         cursor.close()
         conn.close()
 
-    print("Supplier Updated Successfully")
+        print("Supplier Updated Successfully")
 
-    def delete_supplier(self, supplier_id):
+        cursor.close()
+        conn.close()
+
+        print("Supplier Deleted Successfully")
+
+    def get_supplier_report(self):
 
         conn = get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
           """
-           DELETE FROM Supplier
-           WHERE supplier_id = ?
-           """,
-          (supplier_id,)
+          SELECT
+               supplier_id,
+               supplier_name,
+               contact_person,
+               phone,
+               email,
+               address,
+               created_date
+               FROM Supplier
+               ORDER BY supplier_name
+            """
     )
 
-        conn.commit()
+        suppliers = cursor.fetchall()
 
         cursor.close()
         conn.close()
 
-    print("Supplier Deleted Successfully")
+        return suppliers

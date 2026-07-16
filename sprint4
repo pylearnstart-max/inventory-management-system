@@ -186,3 +186,38 @@ High
 ### Result
 
 Successfully implemented the Update Supplier feature. The system updates supplier information using the Repository Pattern and stores the modified details in the `Supplier` table. The updated data was verified in SQL Server, tested successfully, and committed to Git.
+# Story ID
+
+## INV-406
+
+### Title
+
+Delete Supplier
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create `delete_supplier()` in `supplier_repo.py`
+* [x] Create `delete_supplier()` in `supplier_service.py`
+* [x] Create `test_delete_supplier.py`
+* [x] Delete supplier record from the `Supplier` table
+* [x] Verify supplier deletion in SQL Server
+* [x] Test Delete Supplier functionality
+* [x] Verify Repository Pattern implementation
+* [x] Handle supplier deletion using `supplier_id`
+* [x] Commit changes to Git
+
+### Result
+
+Successfully implemented the Delete Supplier feature. The system deletes supplier records using the Repository Pattern based on the `supplier_id`. The functionality was tested successfully, verified in SQL Server, and committed to Git.
