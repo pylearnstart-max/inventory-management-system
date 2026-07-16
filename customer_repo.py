@@ -37,3 +37,23 @@ class CustomerRepo:
         conn.close()
 
         print("Customer Added Successfully")
+
+    def get_all_customers(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+          """
+          SELECT *
+          FROM Customer
+          ORDER BY customer_id
+          """
+    )
+
+        customers = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return customers

@@ -7,3 +7,7 @@ class CustomerService:
 
     def add_customer(self, customer):
         self.repo.add_customer(customer)
+
+    def get_all_customers(self):
+
+        return self.repo.get_all_customers()
