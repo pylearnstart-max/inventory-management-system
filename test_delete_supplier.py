@@ -2,6 +2,9 @@ from supplier_service import SupplierService
 
 service = SupplierService()
 
-supplier_id = int(input("Enter Supplier ID to Delete: "))
+supplier_id = input("Enter Supplier ID to Delete: ").strip()
 
-service.delete_supplier(supplier_id)
+if supplier_id == "":
+    print("Supplier ID cannot be empty.")
+else:
+    service.delete_supplier(int(supplier_id))
