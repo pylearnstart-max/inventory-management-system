@@ -117,3 +117,23 @@ class SupplierRepo:
         conn.close()
 
     print("Supplier Updated Successfully")
+
+    def delete_supplier(self, supplier_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+          """
+           DELETE FROM Supplier
+           WHERE supplier_id = ?
+           """,
+          (supplier_id,)
+    )
+
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+    print("Supplier Deleted Successfully")

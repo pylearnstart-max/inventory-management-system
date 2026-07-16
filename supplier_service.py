@@ -18,3 +18,6 @@ class SupplierService:
     def update_supplier(self, supplier):
 
         self.repo.update_supplier(supplier)
+    def delete_supplier(self, supplier_id):
+
+        self.repo.delete_supplier(supplier_id)
