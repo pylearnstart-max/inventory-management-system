@@ -57,3 +57,24 @@ class CustomerRepo:
         conn.close()
 
         return customers
+
+    def search_customer(self, customer_name):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+          """
+          SELECT *
+          FROM Customer
+          WHERE customer_name LIKE ?
+          """,
+          ('%' + customer_name + '%',)
+    )
+
+        customers = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return customers

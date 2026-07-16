@@ -11,3 +11,7 @@ class CustomerService:
     def get_all_customers(self):
 
         return self.repo.get_all_customers()
+
+    def search_customer(self, customer_name):
+
+        return self.repo.search_customer(customer_name)
