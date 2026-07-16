@@ -1,0 +1,109 @@
+# Sprint 5
+
+## Sprint Goal
+
+Implement Customer Management Module using Python, SQL Server, and Repository Pattern.
+
+---
+
+# Story ID
+
+## INV-501
+
+### Title
+
+Create Customer Table
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+🟡 In Progress
+
+### Tasks
+
+* [ ] Create `create_customer_table.py`
+* [ ] Create `Customer` table
+* [ ] Add `customer_id` as Primary Key
+* [ ] Add customer information columns
+* [ ] Verify table creation in SQL Server
+* [ ] Commit to Git
+
+### Customer Table Structure
+
+| Column        | Data Type                     |
+| ------------- | ----------------------------- |
+| customer_id   | INT IDENTITY(1,1) PRIMARY KEY |
+| customer_name | VARCHAR(100) NOT NULL         |
+| phone         | VARCHAR(15)                   |
+| email         | VARCHAR(100)                  |
+| address       | VARCHAR(200)                  |
+| created_date  | DATE                          |
+
+### Result
+
+Customer table creation is currently in progress. After successfully creating the table and verifying it in SQL Server, this story will be marked as completed and committed to Git.
+# Story ID
+
+## INV-502
+
+### Title
+
+Add Customer
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+🟡 In Progress
+
+### Tasks
+
+* [x] Create `customer_model.py`
+* [x] Create `customer_repo.py`
+* [x] Create `customer_service.py`
+* [x] Create `test_customer.py`
+* [ ] Insert customer into the `Customer` table
+* [ ] Verify customer record in SQL Server
+* [ ] Test Add Customer functionality
+* [ ] Commit to Git
+
+### Result
+
+Customer Management classes (`customer_model.py`, `customer_repo.py`, `customer_service.py`) and the test file have been created.
+
+**Current Issue:**
+The files were initially saved with incorrect names (`create_customer_model.py`, `create_customer_repo.py`, `create_customer_service.py`), causing a `ModuleNotFoundError`.
+
+**Resolution:**
+Rename the files to:
+
+* `customer_model.py`
+* `customer_repo.py`
+* `customer_service.py`
+
+Then run:
+
+```bash
+python test_customer.py
+```
+
+Expected Output:
+
+```text
+Customer Added Successfully
+```
+
+Finally, verify the inserted customer in SQL Server and commit the changes to Git.

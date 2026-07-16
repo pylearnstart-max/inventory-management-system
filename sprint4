@@ -255,3 +255,39 @@ High
 ### Result
 
 Successfully implemented the Supplier Report feature. The system retrieves and displays all supplier records from the `Supplier` table in sorted order. If no supplier records are available, the system displays **"No Suppliers Found"**. The functionality was tested successfully, verified in SQL Server, and committed to Git.
+# Story ID
+
+## INV-408
+
+### Title
+
+Sprint 4 Final Testing and Documentation
+
+### Priority
+
+High
+
+### Story Points
+
+5
+
+### Status
+
+✅ Completed
+
+### Tasks
+
+* [x] Create `sprint4_test.py`
+* [x] Verify Add Supplier functionality
+* [x] Verify View All Suppliers functionality
+* [x] Verify Search Supplier functionality
+* [x] Verify Update Supplier functionality
+* [x] Verify Delete Supplier functionality
+* [x] Verify Supplier Report functionality
+* [x] Perform end-to-end Sprint 4 testing
+* [x] Update Sprint 4 documentation
+* [x] Commit Sprint 4 changes to Git
+
+### Result
+
+Successfully completed Sprint 4 testing. All Supplier Management features (Add, View, Search, Update, Delete, and Report) were verified successfully. The Repository Pattern implementation, SQL Server integration, and application workflow were tested end-to-end. Sprint 4 was completed successfully and committed to Git.
