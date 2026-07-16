@@ -78,3 +78,36 @@ class CustomerRepo:
         conn.close()
 
         return customers
+
+    def update_customer(self, customer):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+          """
+           UPDATE Customer
+           SET
+             customer_name = ?,
+             phone = ?,
+             email = ?,
+             address = ?,
+             created_date = ?
+             WHERE customer_id = ?
+            """,
+            (
+              customer.customer_name,
+              customer.phone,
+              customer.email,
+              customer.address,
+              customer.created_date,
+              customer.customer_id
+        )
+    )
+
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+    print("Customer Updated Successfully")

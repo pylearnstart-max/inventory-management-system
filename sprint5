@@ -251,3 +251,162 @@ git commit -m "INV-503 View All Customers"
 * [ ] Commit to Git
 
 After completing **INV-503**, we'll continue with **INV-504 – Search Customer**.
+Let's continue with **Sprint 5 – INV-504: Search Customer**.
+
+---
+
+# Story ID
+
+## INV-504
+
+### Title
+
+Search Customer
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+🟡 In Progress
+
+---
+
+## Step 1: Update `customer_repo.py`
+
+Add this method inside the `CustomerRepo` class.
+
+```python
+def search_customer(self, customer_name):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        SELECT *
+        FROM Customer
+        WHERE customer_name LIKE ?
+        """,
+        ('%' + customer_name + '%',)
+    )
+
+    customers = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return customers
+```
+
+---
+
+## Step 2: Update `customer_service.py`
+
+```python
+def search_customer(self, customer_name):
+
+    return self.repo.search_customer(customer_name)
+```
+
+---
+
+## Step 3: Create `test_search_customer.py`
+
+```python
+from customer_service import CustomerService
+
+service = CustomerService()
+
+customer_name = input("Enter Customer Name: ")
+
+customers = service.search_customer(customer_name)
+
+print("\n========== SEARCH CUSTOMER ==========\n")
+
+if customers:
+
+    for customer in customers:
+        print(customer)
+
+else:
+
+    print("Customer Not Found")
+```
+
+---
+
+## Step 4: Run
+
+```bash
+python test_search_customer.py
+```
+
+### Example
+
+```text
+Enter Customer Name: Rahul
+
+========== SEARCH CUSTOMER ==========
+
+(1, 'Rahul', '9876543210', 'rahul@gmail.com', 'Hyderabad', datetime.date(2026, 7, 16))
+```
+
+If there is no matching customer:
+
+```text
+Customer Not Found
+```
+
+---
+
+## Step 5: Verify in SQL Server
+
+```sql
+SELECT *
+FROM Customer
+WHERE customer_name LIKE '%Rahul%';
+```
+
+---
+
+## Step 6: Git Commit
+
+```bash
+git add .
+git commit -m "INV-504 Search Customer"
+```
+
+---
+
+# Sprint 5 Update
+
+## Story ID
+
+### INV-504
+
+**Title:** Search Customer
+
+**Priority:** High
+
+**Story Points:** 3
+
+**Status:** 🟡 In Progress
+
+### Tasks
+
+* [ ] Create `search_customer()` in `customer_repo.py`
+* [ ] Create `search_customer()` in `customer_service.py`
+* [ ] Create `test_search_customer.py`
+* [ ] Search customer by name
+* [ ] Verify search result in SQL Server
+* [ ] Test Search Customer functionality
+* [ ] Verify Repository Pattern implementation
+* [ ] Commit to Git
+
+After INV-504 is complete, we'll move to **INV-505 – Update Customer**.
