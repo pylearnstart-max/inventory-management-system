@@ -57,3 +57,23 @@ class SalesRepo:
         conn.close()
 
         return sales
+    def search_sale(self, sale_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+        """
+        SELECT *
+        FROM Sales
+        WHERE sale_id = ?
+        """,
+        (sale_id,)
+    )
+
+        sale = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return sale

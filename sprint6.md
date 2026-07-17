@@ -225,3 +225,97 @@ git commit -m "INV-602 Add Sale"
 ✅ SQL Server integration completed.
 
 ✅ Ready for INV-603 – View All Sales.
+
+# Story ID
+
+## INV-603
+
+### Title
+View All Sales
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement get_all_sales() in Sales Repository
+- [x] Implement get_all_sales() in Sales Service
+- [x] Create test_get_all_sales.py
+- [x] Fetch all sales records from SQL Server
+- [x] Display all sales records
+- [x] Sort records by Sale ID
+- [x] Test View All Sales functionality
+
+---
+
+## Files Updated
+
+- sales_repo.py
+- sales_service.py
+
+## Files Created
+
+- test_get_all_sales.py
+
+---
+
+## Database
+
+### Table Used
+
+Sales
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT *
+FROM Sales
+ORDER BY sale_id;
+```
+
+---
+
+## Test Result
+
+```text
+========================================
+        ALL SALES
+========================================
+
+(1, 4, 2, 2, 55000.00, 110000.00, 2026-07-17)
+```
+
+*(Output may vary based on your database records.)*
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-603 View All Sales"
+```
+
+---
+
+## Story Completion
+
+✅ View All Sales implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Sales records retrieved from SQL Server.
+
+✅ Data displayed in ascending order by Sale ID.
+
+✅ Ready for INV-604 – Search Sale.

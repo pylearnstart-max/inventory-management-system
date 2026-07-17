@@ -12,3 +12,6 @@ class SalesService:
     def get_all_sales(self):
 
         return self.repo.get_all_sales()
+    def search_sale(self, sale_id):
+
+        return self.repo.search_sale(sale_id)
