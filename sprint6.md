@@ -533,3 +533,97 @@ Sales
 ```sql
 DELETE FROM Sales
 WHERE sale_id = ?;
+
+# Story ID
+
+## INV-607
+
+### Title
+Sales Report
+
+### Priority
+High
+
+### Story Points
+3
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement sales_report() in Sales Repository
+- [x] Implement sales_report() in Sales Service
+- [x] Create test_sales_report.py
+- [x] Fetch Total Sales Count
+- [x] Calculate Total Revenue
+- [x] Display Sales Report
+- [x] Test Sales Report functionality
+
+---
+
+## Files Updated
+
+- sales_repo.py
+- sales_service.py
+
+## Files Created
+
+- test_sales_report.py
+
+---
+
+## Database
+
+### Table Used
+
+Sales
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT
+    COUNT(sale_id) AS total_sales,
+    SUM(total_amount) AS total_revenue
+FROM Sales;
+```
+
+---
+
+## Test Result
+
+```text
+========== SALES REPORT ==========
+
+Total Sales   : 5
+Total Revenue : 450000.00
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-607 Sales Report"
+```
+
+---
+
+## Story Completion
+
+✅ Sales Report implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Total Sales Count displayed.
+
+✅ Total Revenue calculated successfully.
+
+✅ Sales Report tested successfully.
+
+✅ Ready for INV-608 – Sprint Testing & Documentation.

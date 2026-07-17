@@ -145,3 +145,24 @@ class SalesRepo:
             return True
 
         return False
+
+    def sales_report(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT 
+        COUNT(sale_id) AS total_sales,
+        SUM(total_amount) AS total_revenue
+        FROM Sales
+    """
+
+        cursor.execute(query)
+
+        report = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return report

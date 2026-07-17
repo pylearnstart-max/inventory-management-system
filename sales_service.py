@@ -4,17 +4,14 @@ from sales_repo import SalesRepo
 class SalesService:
 
     def __init__(self, repo):
-
         self.repo = repo
 
 
     def add_sale(self, sale):
-
         return self.repo.add_sale(sale)
 
 
     def get_all_sales(self):
-
         return self.repo.get_all_sales()
 
 
@@ -41,6 +38,7 @@ class SalesService:
 
         return "Sale Not Found"
 
+
     def delete_sale(self, sale_id):
 
         result = self.repo.delete_sale(sale_id)
@@ -49,3 +47,13 @@ class SalesService:
             return "Sale Deleted Successfully"
 
         return "Sale Not Found"
+
+
+    def sales_report(self):
+
+        report = self.repo.sales_report()
+
+        if report:
+            return report
+
+        return "No Sales Data Found"
