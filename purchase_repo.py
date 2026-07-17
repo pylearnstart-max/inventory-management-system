@@ -40,3 +40,23 @@ class PurchaseRepo:
         conn.close()
 
         print("Purchase Added Successfully")
+
+    def get_all_purchases(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+        """
+        SELECT *
+        FROM Purchase
+        ORDER BY purchase_id
+        """
+    )
+
+        purchases = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return purchases

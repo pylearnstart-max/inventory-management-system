@@ -236,3 +236,101 @@ git commit -m "INV-702 Add Purchase"
 ✅ Purchase tested successfully.
 
 ✅ Ready for INV-703 – View All Purchases.
+# Story ID
+
+## INV-703
+
+### Title
+View All Purchases
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement get_all_purchases() in Purchase Repository
+- [x] Implement get_all_purchases() in Purchase Service
+- [x] Create test_get_all_purchases.py
+- [x] Display all purchase records
+- [x] Test View All Purchases functionality
+
+---
+
+## Files Updated
+
+- purchase_repo.py
+- purchase_service.py
+
+## Files Created
+
+- test_get_all_purchases.py
+
+---
+
+## Database
+
+### Table Used
+
+Purchase
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT *
+FROM Purchase
+ORDER BY purchase_id;
+```
+
+---
+
+## Test Result
+
+### Purchase Records Available
+
+```text
+========== PURCHASE LIST ==========
+
+(1, 4, 1, 10, 5000.00, 50000.00, 2026-07-17)
+(2, 5, 2, 20, 1500.00, 30000.00, 2026-07-18)
+```
+
+### No Records Available
+
+```text
+========== PURCHASE LIST ==========
+
+No Purchase Records Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-703 View All Purchases"
+```
+
+---
+
+## Story Completion
+
+✅ View All Purchases implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Purchase records displayed successfully.
+
+✅ "No Purchase Records Found" handled correctly.
+
+✅ Ready for INV-704 – Search Purchase.
