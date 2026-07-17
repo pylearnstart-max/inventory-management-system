@@ -44,3 +44,9 @@ class OrderService:
     def delete_order(self, order_id):
 
         return self.repo.delete_order(order_id)
+
+
+
+    def order_report(self):
+
+        return self.repo.order_report()

@@ -150,3 +150,26 @@ class OrderRepo:
             return True
 
         return False
+
+
+
+    def order_report(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+            COUNT(order_id) AS total_orders,
+            SUM(total_amount) AS total_order_amount
+        FROM Orders
+        """
+
+        cursor.execute(query)
+
+        report = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return report
