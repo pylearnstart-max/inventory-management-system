@@ -562,3 +562,188 @@ git commit -m "INV-805 Update Order"
 ✅ "Order Not Found" handled correctly.
 
 ✅ Ready for INV-806 – Delete Order.
+# Story ID
+
+## INV-806
+
+### Title
+Delete Order
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement delete_order() in Order Repository
+- [x] Implement delete_order() in Order Service
+- [x] Create test_delete_order.py
+- [x] Delete Order using Order ID
+- [x] Handle "Order Not Found" scenario
+- [x] Test Delete Order functionality
+
+---
+
+## Files Updated
+
+- order_repo.py
+- order_service.py
+
+## Files Created
+
+- test_delete_order.py
+
+---
+
+## SQL Query Used
+
+```sql
+DELETE FROM Orders
+WHERE order_id = ?;
+```
+
+---
+
+## Test Result
+
+### Existing Order
+
+```text
+Enter Order ID: 2
+
+========== DELETE ORDER ==========
+
+Order Deleted Successfully
+```
+
+### Non Existing Order
+
+```text
+Enter Order ID: 100
+
+========== DELETE ORDER ==========
+
+Order Not Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-806 Delete Order"
+```
+
+---
+
+# Story Completion
+
+✅ Delete Order implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Order deleted using Order ID.
+
+✅ Empty record scenario handled.
+
+---
+
+# Story ID
+
+## INV-807
+
+### Title
+Order Report
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement order_report() in Order Repository
+- [x] Implement order_report() in Order Service
+- [x] Create test_order_report.py
+- [x] Calculate total number of orders
+- [x] Calculate total order amount
+- [x] Display order summary report
+- [x] Test Order Report functionality
+
+---
+
+## Files Updated
+
+- order_repo.py
+- order_service.py
+
+## Files Created
+
+- test_order_report.py
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT
+COUNT(order_id) AS total_orders,
+SUM(total_amount) AS total_order_amount
+FROM Orders;
+```
+
+---
+
+## Test Result
+
+### Orders Available
+
+```text
+========== ORDER REPORT ==========
+
+Total Orders       : 5
+Total Order Amount : 550000.00
+```
+
+### Empty Orders
+
+```text
+========== ORDER REPORT ==========
+
+No Orders Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-807 Order Report"
+```
+
+---
+
+# Story Completion
+
+✅ Order Report implemented successfully.
+
+✅ Total orders calculation completed.
+
+✅ Total order amount calculation completed.
+
+✅ Empty orders handled correctly.
