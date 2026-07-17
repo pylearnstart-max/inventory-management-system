@@ -334,3 +334,107 @@ git commit -m "INV-703 View All Purchases"
 ✅ "No Purchase Records Found" handled correctly.
 
 ✅ Ready for INV-704 – Search Purchase.
+
+# Story ID
+
+## INV-704
+
+### Title
+Search Purchase
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement search_purchase() in Purchase Repository
+- [x] Implement search_purchase() in Purchase Service
+- [x] Create test_search_purchase.py
+- [x] Search Purchase by Purchase ID
+- [x] Display Purchase Details
+- [x] Handle "Purchase Not Found" scenario
+- [x] Test Search Purchase functionality
+
+---
+
+## Files Updated
+
+- purchase_repo.py
+- purchase_service.py
+
+## Files Created
+
+- test_search_purchase.py
+
+---
+
+## Database
+
+### Table Used
+
+Purchase
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT *
+FROM Purchase
+WHERE purchase_id = ?;
+```
+
+---
+
+## Test Result
+
+### Existing Purchase
+
+```text
+Enter Purchase ID: 1
+
+========== SEARCH PURCHASE ==========
+
+(1, 4, 1, 10, 5000.00, 50000.00, 2026-07-17)
+```
+
+### Non-Existing Purchase
+
+```text
+Enter Purchase ID: 100
+
+========== SEARCH PURCHASE ==========
+
+Purchase Not Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-704 Search Purchase"
+```
+
+---
+
+## Story Completion
+
+✅ Search Purchase implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Purchase searched using Purchase ID.
+
+✅ "Purchase Not Found" handled correctly.
+
+✅ Ready for INV-705 – Update Purchase.

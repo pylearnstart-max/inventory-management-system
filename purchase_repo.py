@@ -83,3 +83,37 @@ class PurchaseRepo:
         conn.close()
 
         return purchase
+
+
+    def update_purchase(self, purchase_id, quantity, total_amount):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        UPDATE Purchase
+        SET quantity = ?,
+            total_amount = ?
+        WHERE purchase_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (
+                quantity,
+                total_amount,
+                purchase_id
+            )
+        )
+
+        conn.commit()
+
+        updated = cursor.rowcount
+
+        cursor.close()
+        conn.close()
+
+        if updated > 0:
+            return True
+
+        return False
