@@ -3,6 +3,7 @@ from db import get_connection
 
 class CustomerOrderRepo:
 
+
     def add_customer_order(self, customer_order):
 
         conn = get_connection()
@@ -36,3 +37,28 @@ class CustomerOrderRepo:
         conn.close()
 
         print("Customer Order Added Successfully")
+
+
+    def get_all_customer_orders(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+            customer_order_id,
+            customer_id,
+            order_id,
+            order_date
+        FROM CustomerOrder
+        ORDER BY customer_order_id
+        """
+
+        cursor.execute(query)
+
+        customer_orders = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return customer_orders

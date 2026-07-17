@@ -147,3 +147,153 @@ git commit -m "INV-1001 Create CustomerOrder Table"
 | INV-1008 | Testing & Documentation | ⏳ Pending |
 
 **Sprint 10 Progress: 1/8 Stories Completed (12.5%)**
+# Story ID
+
+## INV-1002
+
+### Title
+Add Customer Order
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Story Description
+
+As an Admin, I want to add a Customer Order so that customer purchases can be linked with existing orders.
+
+---
+
+## Tasks
+
+- [x] Create CustomerOrder Model
+- [x] Create CustomerOrder Repository
+- [x] Create CustomerOrder Service
+- [x] Create test_add_customer_order.py
+- [x] Insert Customer Order into SQL Server
+- [x] Verify Foreign Key relationships
+- [x] Verify inserted record
+
+---
+
+## Files Created
+
+```
+customer_order_model.py
+customer_order_repo.py
+customer_order_service.py
+test_add_customer_order.py
+```
+
+---
+
+## Model
+
+```
+CustomerOrder
+```
+
+### Attributes
+
+- customer_id
+- order_id
+- order_date
+
+---
+
+## Repository Method
+
+```
+add_customer_order()
+```
+
+---
+
+## Service Method
+
+```
+add_customer_order()
+```
+
+---
+
+## Database Table
+
+```
+CustomerOrder
+```
+
+### Columns
+
+- customer_order_id
+- customer_id
+- order_id
+- order_date
+
+---
+
+## Validation
+
+- Customer ID must exist in the Customer table.
+- Order ID must exist in the Orders table.
+- Foreign key constraints validated before insertion.
+
+---
+
+## Test Result
+
+### Command
+
+```bash
+python test_add_customer_order.py
+```
+
+### Expected Output
+
+```
+Customer Order Added Successfully
+```
+
+---
+
+## SQL Verification
+
+```sql
+SELECT * FROM CustomerOrder;
+```
+
+Example Output
+
+```
+customer_order_id | customer_id | order_id | order_date
+--------------------------------------------------------
+1                 | 2           | 4        | 2026-07-17
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-1002 Add Customer Order"
+```
+
+---
+
+## Story Completion
+
+- ✅ Customer Order model implemented.
+- ✅ Repository layer implemented.
+- ✅ Service layer implemented.
+- ✅ Customer Order inserted successfully.
+- ✅ SQL Server data verified.
+- ✅ Repository Pattern followed.
+- ✅ Foreign key relationships validated.

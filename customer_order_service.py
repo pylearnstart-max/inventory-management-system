@@ -14,3 +14,7 @@ class CustomerOrderService:
     def add_customer_order(self, customer_order):
 
         return self.repo.add_customer_order(customer_order)
+    
+    def get_all_customer_orders(self):
+
+        return self.repo.get_all_customer_orders()
