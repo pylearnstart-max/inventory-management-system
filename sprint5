@@ -746,3 +746,212 @@ Customer Deleted Successfully
 ```
 
 After completing **INV-506**, we'll continue with **INV-507 – Customer Report**, the last feature before the Sprint 5 final testing and documentation.
+Let's complete **INV-507 – Customer Report**.
+
+---
+
+# Story ID
+
+## INV-507
+
+### Title
+
+Customer Report
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+🟡 In Progress
+
+---
+
+## Step 1: `customer_repo.py`
+
+Add this method inside the `CustomerRepo` class.
+
+```python
+def get_customer_report(self):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        SELECT
+            customer_id,
+            customer_name,
+            phone,
+            email,
+            address,
+            created_date
+        FROM Customer
+        ORDER BY customer_name
+        """
+    )
+
+    customers = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return customers
+```
+
+---
+
+## Step 2: `customer_service.py`
+
+```python
+def get_customer_report(self):
+
+    return self.repo.get_customer_report()
+```
+
+---
+
+## Step 3: `test_customer_report.py`
+
+```python
+from customer_service import CustomerService
+
+service = CustomerService()
+
+customers = service.get_customer_report()
+
+print("=" * 40)
+print("      CUSTOMER REPORT")
+print("=" * 40)
+
+if customers:
+
+    for customer in customers:
+        print(customer)
+
+else:
+    print("No Customers Found")
+```
+
+---
+
+## Step 4: Run
+
+```bash
+python test_customer_report.py
+```
+
+### Expected Output
+
+```text
+========================================
+      CUSTOMER REPORT
+========================================
+(1, 'Rahul Kumar', '9876543210', 'rahulkumar@gmail.com', 'Hyderabad', datetime.date(2026, 7, 17))
+```
+
+If there are no records:
+
+```text
+========================================
+      CUSTOMER REPORT
+========================================
+No Customers Found
+```
+
+---
+
+## SQL Verification
+
+```sql
+SELECT
+    customer_id,
+    customer_name,
+    phone,
+    email,
+    address,
+    created_date
+FROM Customer
+ORDER BY customer_name;
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-507 Customer Report"
+```
+
+---
+
+# Sprint 5 Update
+
+## Story ID
+
+### INV-507
+
+**Title:** Customer Report
+
+**Priority:** High
+
+**Story Points:** 3
+
+**Status:** 🟡 In Progress
+
+### Tasks
+
+* [ ] Create `get_customer_report()` in `customer_repo.py`
+* [ ] Create `get_customer_report()` in `customer_service.py`
+* [ ] Create `test_customer_report.py`
+* [ ] Display customer report
+* [ ] Verify report in SQL Server
+* [ ] Test Customer Report
+* [ ] Commit to Git
+
+After INV-507 is completed, we'll move to **INV-508 – Sprint 5 Final Testing & Documentation**, which will complete the entire Customer Management sprint.
+# Sprint 5
+
+## Sprint Goal
+
+Implement Customer Management Module using Python, SQL Server, and Repository Pattern.
+
+---
+
+# Sprint Summary
+
+| Story ID | Title | Status |
+|----------|----------------------|---------|
+| INV-501 | Create Customer Table | ✅ Completed |
+| INV-502 | Add Customer | ✅ Completed |
+| INV-503 | View All Customers | ✅ Completed |
+| INV-504 | Search Customer | ✅ Completed |
+| INV-505 | Update Customer | ✅ Completed |
+| INV-506 | Delete Customer | ✅ Completed |
+| INV-507 | Customer Report | ✅ Completed |
+| INV-508 | Sprint 5 Testing & Documentation | ✅ Completed |
+
+---
+
+## Features Completed
+
+- Customer Table
+- Add Customer
+- View Customers
+- Search Customer
+- Update Customer
+- Delete Customer
+- Customer Report
+- Sprint Testing
+
+---
+
+## Sprint Status
+
+✅ Sprint 5 Completed Successfully
