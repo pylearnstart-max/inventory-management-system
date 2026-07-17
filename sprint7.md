@@ -438,3 +438,201 @@ git commit -m "INV-704 Search Purchase"
 ✅ "Purchase Not Found" handled correctly.
 
 ✅ Ready for INV-705 – Update Purchase.
+# Story ID
+
+## INV-706
+
+### Title
+Delete Purchase
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement delete_purchase() in Purchase Repository
+- [x] Implement delete_purchase() in Purchase Service
+- [x] Create test_delete_purchase.py
+- [x] Delete Purchase by Purchase ID
+- [x] Display Success Message
+- [x] Handle "Purchase Not Found" scenario
+- [x] Test Delete Purchase functionality
+
+---
+
+## Files Updated
+
+- purchase_repo.py
+- purchase_service.py
+
+## Files Created
+
+- test_delete_purchase.py
+
+---
+
+## Database
+
+### Table Used
+
+Purchase
+
+---
+
+## SQL Query Used
+
+```sql
+DELETE FROM Purchase
+WHERE purchase_id = ?;
+```
+
+---
+
+## Test Result
+
+### Existing Purchase
+
+```text
+Enter Purchase ID: 1
+
+========== DELETE PURCHASE ==========
+
+Purchase Deleted Successfully
+```
+
+### Non-Existing Purchase
+
+```text
+Enter Purchase ID: 100
+
+========== DELETE PURCHASE ==========
+
+Purchase Not Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-706 Delete Purchase"
+```
+
+---
+
+## Story Completion
+
+✅ Delete Purchase implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Purchase deleted using Purchase ID.
+
+✅ "Purchase Not Found" handled correctly.
+
+✅ Ready for INV-707 – Purchase Report.
+# Story ID
+
+## INV-707
+
+### Title
+Purchase Report
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement purchase_report() in Purchase Repository
+- [x] Implement purchase_report() in Purchase Service
+- [x] Create test_purchase_report.py
+- [x] Display Total Purchases
+- [x] Display Total Purchase Amount
+- [x] Test Purchase Report functionality
+
+---
+
+## Files Updated
+
+- purchase_repo.py
+- purchase_service.py
+
+## Files Created
+
+- test_purchase_report.py
+
+---
+
+## Database
+
+### Table Used
+
+Purchase
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT
+    COUNT(purchase_id) AS total_purchases,
+    SUM(total_amount) AS total_purchase_amount
+FROM Purchase;
+```
+
+---
+
+## Test Result
+
+### Purchase Report
+
+```text
+========== PURCHASE REPORT ==========
+
+Total Purchases      : 0
+Total Purchase Amount: 0
+```
+
+> Note: If the `Purchase` table has no records, `COUNT()` returns `0` and `SUM()` is displayed as `0` after handling the `None` value in Python.
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-707 Purchase Report"
+```
+
+---
+
+## Story Completion
+
+✅ Purchase Report implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Total Purchases displayed successfully.
+
+✅ Total Purchase Amount displayed successfully.
+
+✅ Empty table scenario handled correctly.
+
+✅ Ready for INV-708 – Sprint Testing & Documentation.

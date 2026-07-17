@@ -33,3 +33,10 @@ class PurchaseService:
             quantity,
             total_amount
         )
+    def delete_purchase(self, purchase_id):
+
+        return self.repo.delete_purchase(purchase_id)
+    
+    def purchase_report(self):
+
+        return self.repo.purchase_report()

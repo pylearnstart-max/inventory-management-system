@@ -92,7 +92,8 @@ class PurchaseRepo:
 
         query = """
         UPDATE Purchase
-        SET quantity = ?,
+        SET
+            quantity = ?,
             total_amount = ?
         WHERE purchase_id = ?
         """
@@ -117,3 +118,53 @@ class PurchaseRepo:
             return True
 
         return False
+
+
+    def delete_purchase(self, purchase_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        DELETE FROM Purchase
+        WHERE purchase_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (purchase_id,)
+        )
+
+        conn.commit()
+
+        deleted = cursor.rowcount
+
+        cursor.close()
+        conn.close()
+
+        if deleted > 0:
+            return True
+
+        return False
+
+
+    def purchase_report(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+            COUNT(purchase_id) AS total_purchases,
+            SUM(total_amount) AS total_purchase_amount
+        FROM Purchase
+        """
+
+        cursor.execute(query)
+
+        report = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return report
