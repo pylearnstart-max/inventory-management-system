@@ -79,10 +79,7 @@ class CustomerOrderRepo:
         WHERE customer_order_id = ?
         """
 
-        cursor.execute(
-            query,
-            (customer_order_id,)
-        )
+        cursor.execute(query, (customer_order_id,))
 
         customer_order = cursor.fetchone()
 
@@ -124,12 +121,56 @@ class CustomerOrderRepo:
 
         conn.commit()
 
-        updated = cursor.rowcount
+        if cursor.rowcount > 0:
+            cursor.close()
+            conn.close()
+            return True
+
+        cursor.close()
+        conn.close()
+        return False
+
+
+    def delete_customer_order(self, customer_order_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        DELETE FROM CustomerOrder
+        WHERE customer_order_id = ?
+        """
+
+        cursor.execute(query, (customer_order_id,))
+
+        conn.commit()
+
+        if cursor.rowcount > 0:
+            cursor.close()
+            conn.close()
+            return True
+
+        cursor.close()
+        conn.close()
+        return False
+
+
+    def customer_order_report(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+            COUNT(*) AS TotalCustomerOrders
+        FROM CustomerOrder
+        """
+
+        cursor.execute(query)
+
+        report = cursor.fetchone()
 
         cursor.close()
         conn.close()
 
-        if updated > 0:
-            return True
-
-        return False
+        return report
