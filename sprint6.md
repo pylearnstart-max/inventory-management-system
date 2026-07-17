@@ -138,3 +138,90 @@ git commit -m "INV-601 Create Sales Table"
 ---
 
 After **INV-601** is completed, we'll proceed to **INV-602 – Add Sale**, where you'll insert sales records and automatically calculate the total amount. This is a common interview scenario and a valuable feature for your project.
+# Story ID
+
+## INV-602
+
+### Title
+Add Sale
+
+### Priority
+High
+
+### Story Points
+3
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Create Sales Model
+- [x] Create Sales Repository
+- [x] Create Sales Service
+- [x] Create Test File
+- [x] Insert Sale into Sales Table
+- [x] Resolve Foreign Key Constraint
+- [x] Verify Product ID
+- [x] Verify Customer ID
+- [x] Test Add Sale Functionality
+
+---
+
+## Files Created
+
+- sales_model.py
+- sales_repo.py
+- sales_service.py
+- test_add_sale.py
+
+---
+
+## Database
+
+### Table Used
+Sales
+
+---
+
+## Test Result
+
+```
+Sale Added Successfully
+```
+
+---
+
+## SQL Verification
+
+```sql
+SELECT * FROM Sales;
+```
+
+Result:
+- Sale record inserted successfully.
+- Product ID validated.
+- Customer ID validated.
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-602 Add Sale"
+```
+
+---
+
+## Story Completion
+
+✅ Sale added successfully.
+
+✅ Repository Pattern followed.
+
+✅ SQL Server integration completed.
+
+✅ Ready for INV-603 – View All Sales.

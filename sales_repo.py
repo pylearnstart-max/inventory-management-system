@@ -40,3 +40,20 @@ class SalesRepo:
         conn.close()
 
         print("Sale Added Successfully")
+    def get_all_sales(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("""
+        SELECT *
+        FROM Sales
+        ORDER BY sale_id
+    """)
+
+        sales = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return sales

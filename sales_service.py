@@ -8,3 +8,7 @@ class SalesService:
 
     def add_sale(self, sale):
         self.repo.add_sale(sale)
+    
+    def get_all_sales(self):
+
+        return self.repo.get_all_sales()
