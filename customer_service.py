@@ -23,3 +23,7 @@ class CustomerService:
     def delete_customer(self, customer_id):
 
         self.repo.delete_customer(customer_id)
+    
+    def get_customer_report(self):
+
+        return self.repo.get_customer_report()

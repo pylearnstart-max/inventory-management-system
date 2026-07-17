@@ -131,3 +131,29 @@ class CustomerRepo:
         conn.close()
 
     print("Customer Deleted Successfully")
+
+    def get_customer_report(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+          """
+            SELECT
+            customer_id,
+            customer_name,
+            phone,
+            email,
+            address,
+            created_date
+            FROM Customer
+            ORDER BY customer_name
+        """
+    )
+
+        customers = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return customers

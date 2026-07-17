@@ -598,3 +598,151 @@ git commit -m "INV-505 Update Customer"
 * [ ] Commit to Git
 
 After completing **INV-505**, we'll move on to **INV-506 – Delete Customer**.
+Excellent! Let's start **Sprint 5 – INV-506: Delete Customer**.
+
+---
+
+# Story ID
+
+## INV-506
+
+### Title
+
+Delete Customer
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+🟡 In Progress
+
+---
+
+## Step 1: Update `customer_repo.py`
+
+Add this method inside the `CustomerRepo` class.
+
+```python
+def delete_customer(self, customer_id):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        DELETE FROM Customer
+        WHERE customer_id = ?
+        """,
+        (customer_id,)
+    )
+
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+    print("Customer Deleted Successfully")
+```
+
+---
+
+## Step 2: Update `customer_service.py`
+
+Add this method inside the `CustomerService` class.
+
+```python
+def delete_customer(self, customer_id):
+
+    self.repo.delete_customer(customer_id)
+```
+
+---
+
+## Step 3: Create `test_delete_customer.py`
+
+```python
+from customer_service import CustomerService
+
+service = CustomerService()
+
+customer_id = int(input("Enter Customer ID to Delete: "))
+
+service.delete_customer(customer_id)
+```
+
+---
+
+## Step 4: Run
+
+```bash
+python test_delete_customer.py
+```
+
+### Example
+
+```text
+Enter Customer ID to Delete: 1
+Customer Deleted Successfully
+```
+
+---
+
+## Step 5: Verify in SQL Server
+
+```sql
+SELECT *
+FROM Customer;
+```
+
+The deleted customer should no longer appear in the results.
+
+---
+
+## Step 6: Git Commit
+
+```bash
+git add .
+git commit -m "INV-506 Delete Customer"
+```
+
+---
+
+# Sprint 5 Update
+
+## Story ID
+
+### INV-506
+
+**Title:** Delete Customer
+
+**Priority:** High
+
+**Story Points:** 3
+
+**Status:** 🟡 In Progress
+
+### Tasks
+
+* [ ] Create `delete_customer()` in `customer_repo.py`
+* [ ] Create `delete_customer()` in `customer_service.py`
+* [ ] Create `test_delete_customer.py`
+* [ ] Delete customer by ID
+* [ ] Verify deletion in SQL Server
+* [ ] Test Delete Customer functionality
+* [ ] Verify Repository Pattern implementation
+* [ ] Commit to Git
+
+### Expected Output
+
+```text
+Enter Customer ID to Delete: 1
+Customer Deleted Successfully
+```
+
+After completing **INV-506**, we'll continue with **INV-507 – Customer Report**, the last feature before the Sprint 5 final testing and documentation.
