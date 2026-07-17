@@ -40,16 +40,20 @@ class SalesRepo:
         conn.close()
 
         print("Sale Added Successfully")
+
+
     def get_all_sales(self):
 
         conn = get_connection()
         cursor = conn.cursor()
 
-        cursor.execute("""
-        SELECT *
-        FROM Sales
-        ORDER BY sale_id
-    """)
+        cursor.execute(
+            """
+            SELECT *
+            FROM Sales
+            ORDER BY sale_id
+            """
+        )
 
         sales = cursor.fetchall()
 
@@ -57,19 +61,21 @@ class SalesRepo:
         conn.close()
 
         return sales
+
+
     def search_sale(self, sale_id):
 
         conn = get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
-        """
-        SELECT *
-        FROM Sales
-        WHERE sale_id = ?
-        """,
-        (sale_id,)
-    )
+            """
+            SELECT *
+            FROM Sales
+            WHERE sale_id = ?
+            """,
+            (sale_id,)
+        )
 
         sale = cursor.fetchone()
 
@@ -77,3 +83,65 @@ class SalesRepo:
         conn.close()
 
         return sale
+
+
+    def update_sale(self, sale_id, quantity, total_amount):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        UPDATE Sales
+        SET quantity = ?,
+            total_amount = ?
+        WHERE sale_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (
+                quantity,
+                total_amount,
+                sale_id
+            )
+        )
+
+        conn.commit()
+
+        updated = cursor.rowcount
+
+        cursor.close()
+        conn.close()
+
+        if updated > 0:
+            return True
+
+        return False
+
+
+    def delete_sale(self, sale_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        DELETE FROM Sales
+        WHERE sale_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (sale_id,)
+        )
+
+        conn.commit()
+
+        deleted = cursor.rowcount
+
+        cursor.close()
+        conn.close()
+
+        if deleted > 0:
+            return True
+
+        return False

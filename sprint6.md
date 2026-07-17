@@ -319,3 +319,217 @@ git commit -m "INV-603 View All Sales"
 ✅ Data displayed in ascending order by Sale ID.
 
 ✅ Ready for INV-604 – Search Sale.
+
+# Story ID
+
+## INV-604
+
+### Title
+Search Sale
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement search_sale() in Sales Repository
+- [x] Implement search_sale() in Sales Service
+- [x] Create test_search_sale.py
+- [x] Search Sale by Sale ID
+- [x] Display Sale Details
+- [x] Handle "Sale Not Found" scenario
+- [x] Test Search Sale functionality
+
+---
+
+## Files Updated
+
+- sales_repo.py
+- sales_service.py
+
+## Files Created
+
+- test_search_sale.py
+
+---
+
+## Database
+
+### Table Used
+
+Sales
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT *
+FROM Sales
+WHERE sale_id = ?;
+```
+
+---
+
+## Test Result
+
+### Existing Sale
+
+```text
+Enter Sale ID: 1
+
+========== SEARCH SALE ==========
+
+(1, 4, 2, 2, 55000.00, 110000.00, 2026-07-17)
+```
+
+### Non-Existing Sale
+
+```text
+Enter Sale ID: 100
+
+========== SEARCH SALE ==========
+
+Sale Not Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-604 Search Sale"
+```
+
+---
+
+## Story Completion
+
+✅ Search Sale implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Sale searched using Sale ID.
+
+✅ "Sale Not Found" handled correctly.
+
+✅ Ready for INV-605 – Update Sale.
+
+## INV-605
+
+### Title
+Update Sale
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement update_sale() in Sales Repository
+- [x] Implement update_sale() in Sales Service
+- [x] Create test_update_sales.py
+- [x] Update Sale using Sale ID
+- [x] Update quantity
+- [x] Update total amount
+- [x] Handle "Sale Not Found" scenario
+- [x] Test Update Sale functionality
+
+---
+
+## Files Updated
+
+- sales_repo.py
+- sales_service.py
+
+## Files Created
+
+- test_update_sales.py
+
+---
+
+## Database
+
+### Table Used
+
+Sales
+
+---
+
+## SQL Query Used
+
+```sql
+UPDATE Sales
+SET quantity = ?,
+    total_amount = ?
+WHERE sale_id = ?;
+
+
+---
+## INV-606
+
+### Title
+Delete Sale
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement delete_sale() in Sales Repository
+- [x] Implement delete_sale() in Sales Service
+- [x] Create test_delete_sale.py
+- [x] Delete Sale using Sale ID
+- [x] Handle "Sale Not Found" scenario
+- [x] Test Delete Sale functionality
+
+---
+
+## Files Updated
+
+- sales_repo.py
+- sales_service.py
+
+## Files Created
+
+- test_delete_sale.py
+
+---
+
+## Database
+
+### Table Used
+
+Sales
+
+---
+
+## SQL Query Used
+
+```sql
+DELETE FROM Sales
+WHERE sale_id = ?;
