@@ -3,30 +3,31 @@ from db import get_connection
 
 class SupplierRepo:
 
+
     def add_supplier(self, supplier):
 
         conn = get_connection()
         cursor = conn.cursor()
 
+        query = """
+        INSERT INTO Supplier
+        (
+            supplier_name,
+            phone,
+            email,
+            address,
+            created_date
+        )
+        VALUES
+        (
+            ?, ?, ?, ?, ?
+        )
+        """
+
         cursor.execute(
-            """
-            INSERT INTO Supplier
-            (
-                supplier_name,
-                contact_person,
-                phone,
-                email,
-                address,
-                created_date
-            )
-            VALUES
-            (
-                ?, ?, ?, ?, ?, ?
-            )
-            """,
+            query,
             (
                 supplier.supplier_name,
-                supplier.contact_person,
                 supplier.phone,
                 supplier.email,
                 supplier.address,
@@ -42,18 +43,19 @@ class SupplierRepo:
         print("Supplier Added Successfully")
 
 
+
     def get_all_suppliers(self):
 
         conn = get_connection()
         cursor = conn.cursor()
 
-        cursor.execute(
-            """
-            SELECT *
-            FROM Supplier
-            ORDER BY supplier_id
-            """
-        )
+        query = """
+        SELECT *
+        FROM Supplier
+        ORDER BY supplier_id
+        """
+
+        cursor.execute(query)
 
         suppliers = cursor.fetchall()
 
@@ -63,17 +65,45 @@ class SupplierRepo:
         return suppliers
 
 
-    def search_supplier(self, supplier_name):
+
+    def search_supplier(self, supplier_id):
 
         conn = get_connection()
         cursor = conn.cursor()
 
+        query = """
+        SELECT *
+        FROM Supplier
+        WHERE supplier_id = ?
+        """
+
         cursor.execute(
-            """
-            SELECT *
-            FROM Supplier
-            WHERE supplier_name LIKE ?
-            """,
+            query,
+            (supplier_id,)
+        )
+
+        supplier = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return supplier
+
+
+
+    def search_supplier_by_name(self, supplier_name):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT *
+        FROM Supplier
+        WHERE supplier_name LIKE ?
+        """
+
+        cursor.execute(
+            query,
             ('%' + supplier_name + '%',)
         )
 
@@ -83,69 +113,54 @@ class SupplierRepo:
         conn.close()
 
         return suppliers
-    def update_supplier(self, supplier):   
+
+
+
+    def update_supplier(
+            self,
+            supplier_id,
+            phone,
+            email,
+            address
+    ):
 
         conn = get_connection()
         cursor = conn.cursor()
 
-        cursor.execute(
-            """
-            UPDATE Supplier
-            SET
-            supplier_name = ?,
-            contact_person = ?,
+
+        query = """
+        UPDATE Supplier
+        SET
             phone = ?,
             email = ?,
-            address = ?,
-            created_date = ?
-            WHERE supplier_id = ?
-            """,
+            address = ?
+        WHERE supplier_id = ?
+        """
+
+
+        cursor.execute(
+            query,
             (
-                supplier.supplier_name,
-                supplier.contact_person,
-                supplier.phone,
-                supplier.email,
-                supplier.address,
-                supplier.created_date,
-                supplier.supplier_id
+                phone,
+                email,
+                address,
+                supplier_id
             )
         )
 
+
         conn.commit()
 
-        cursor.close()
-        conn.close()
 
-        print("Supplier Updated Successfully")
+        updated = cursor.rowcount
 
-        cursor.close()
-        conn.close()
-
-        print("Supplier Deleted Successfully")
-
-    def get_supplier_report(self):
-
-        conn = get_connection()
-        cursor = conn.cursor()
-
-        cursor.execute(
-          """
-          SELECT
-               supplier_id,
-               supplier_name,
-               contact_person,
-               phone,
-               email,
-               address,
-               created_date
-               FROM Supplier
-               ORDER BY supplier_name
-            """
-    )
-
-        suppliers = cursor.fetchall()
 
         cursor.close()
         conn.close()
 
-        return suppliers
+
+        if updated > 0:
+
+            return True
+
+        return False

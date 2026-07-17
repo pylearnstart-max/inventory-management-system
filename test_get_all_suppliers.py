@@ -1,10 +1,23 @@
+from supplier_repo import SupplierRepo
 from supplier_service import SupplierService
 
-service = SupplierService()
+
+repo = SupplierRepo()
+
+service = SupplierService(repo)
+
 
 suppliers = service.get_all_suppliers()
 
+
 print("\n========== SUPPLIER LIST ==========\n")
 
-for supplier in suppliers:
-    print(supplier)
+
+if len(suppliers) == 0:
+
+    print("No Suppliers Found")
+
+else:
+
+    for supplier in suppliers:
+        print(supplier)

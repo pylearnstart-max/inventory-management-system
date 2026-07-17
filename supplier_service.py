@@ -1,26 +1,60 @@
+
 from supplier_repo import SupplierRepo
 
 
 class SupplierService:
 
-    def __init__(self):
-        self.repo = SupplierRepo()
+
+    def __init__(self, repo=None):
+
+        if repo is None:
+            repo = SupplierRepo()
+
+        self.repo = repo
+
+
 
     def add_supplier(self, supplier):
-        self.repo.add_supplier(supplier)
+
+        return self.repo.add_supplier(
+            supplier
+        )
+
+
 
     def get_all_suppliers(self):
+
         return self.repo.get_all_suppliers()
 
-    def search_supplier(self, supplier_name):
 
-        return self.repo.search_supplier(supplier_name)
-    def update_supplier(self, supplier):
 
-        self.repo.update_supplier(supplier)
-    def delete_supplier(self, supplier_id):
+    def search_supplier(self, supplier_id):
 
-        self.repo.delete_supplier(supplier_id)
-    def get_supplier_report(self):
+        return self.repo.search_supplier(
+            supplier_id
+        )
 
-        self.repo.get_supplier_report()
+
+
+    def search_supplier_by_name(self, supplier_name):
+
+        return self.repo.search_supplier_by_name(
+            supplier_name
+        )
+
+
+
+    def update_supplier(
+            self,
+            supplier_id,
+            phone,
+            email,
+            address
+    ):
+
+        return self.repo.update_supplier(
+            supplier_id,
+            phone,
+            email,
+            address
+        )
