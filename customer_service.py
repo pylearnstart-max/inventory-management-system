@@ -19,3 +19,7 @@ class CustomerService:
     def update_customer(self, customer):
 
         self.repo.update_customer(customer)
+    
+    def delete_customer(self, customer_id):
+
+        self.repo.delete_customer(customer_id)

@@ -410,3 +410,191 @@ git commit -m "INV-504 Search Customer"
 * [ ] Commit to Git
 
 After INV-504 is complete, we'll move to **INV-505 – Update Customer**.
+Let's continue with **Sprint 5 – INV-505: Update Customer**.
+
+---
+
+# Story ID
+
+## INV-505
+
+### Title
+
+Update Customer
+
+### Priority
+
+High
+
+### Story Points
+
+3
+
+### Status
+
+🟡 In Progress
+
+---
+
+## Step 1: Update `customer_model.py`
+
+Modify the constructor to include `customer_id`:
+
+```python
+from datetime import date
+
+class Customer:
+
+    def __init__(
+        self,
+        customer_id,
+        customer_name,
+        phone,
+        email,
+        address,
+        created_date
+    ):
+        self.customer_id = customer_id
+        self.customer_name = customer_name
+        self.phone = phone
+        self.email = email
+        self.address = address
+        self.created_date = created_date
+```
+
+---
+
+## Step 2: Update `customer_repo.py`
+
+Add this method inside `CustomerRepo`:
+
+```python
+def update_customer(self, customer):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        UPDATE Customer
+        SET
+            customer_name = ?,
+            phone = ?,
+            email = ?,
+            address = ?,
+            created_date = ?
+        WHERE customer_id = ?
+        """,
+        (
+            customer.customer_name,
+            customer.phone,
+            customer.email,
+            customer.address,
+            customer.created_date,
+            customer.customer_id
+        )
+    )
+
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+    print("Customer Updated Successfully")
+```
+
+---
+
+## Step 3: Update `customer_service.py`
+
+```python
+def update_customer(self, customer):
+
+    self.repo.update_customer(customer)
+```
+
+---
+
+## Step 4: Create `test_update_customer.py`
+
+```python
+from datetime import date
+
+from customer_model import Customer
+from customer_service import CustomerService
+
+service = CustomerService()
+
+customer = Customer(
+    1,
+    "Rahul Kumar",
+    "9876543210",
+    "rahulkumar@gmail.com",
+    "Hyderabad",
+    date.today()
+)
+
+service.update_customer(customer)
+```
+
+---
+
+## Step 5: Run
+
+```bash
+python test_update_customer.py
+```
+
+### Expected Output
+
+```text
+Customer Updated Successfully
+```
+
+---
+
+## Step 6: Verify in SQL Server
+
+```sql
+SELECT *
+FROM Customer
+WHERE customer_id = 1;
+```
+
+---
+
+## Step 7: Git Commit
+
+```bash
+git add .
+git commit -m "INV-505 Update Customer"
+```
+
+---
+
+# Sprint 5 Update
+
+## Story ID
+
+### INV-505
+
+**Title:** Update Customer
+
+**Priority:** High
+
+**Story Points:** 3
+
+**Status:** 🟡 In Progress
+
+### Tasks
+
+* [ ] Update `customer_model.py` to include `customer_id`
+* [ ] Create `update_customer()` in `customer_repo.py`
+* [ ] Create `update_customer()` in `customer_service.py`
+* [ ] Create `test_update_customer.py`
+* [ ] Verify updated customer in SQL Server
+* [ ] Test Update Customer functionality
+* [ ] Verify Repository Pattern implementation
+* [ ] Commit to Git
+
+After completing **INV-505**, we'll move on to **INV-506 – Delete Customer**.

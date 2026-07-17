@@ -111,3 +111,23 @@ class CustomerRepo:
         conn.close()
 
     print("Customer Updated Successfully")
+
+    def delete_customer(self, customer_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+          """
+          DELETE FROM Customer
+          WHERE customer_id = ?
+          """,
+        (customer_id,)
+    )
+
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+
+    print("Customer Deleted Successfully")
