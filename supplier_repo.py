@@ -3,6 +3,7 @@ from db import get_connection
 
 class SupplierRepo:
 
+
     def add_supplier(self, supplier):
 
         conn = get_connection()
@@ -174,3 +175,24 @@ class SupplierRepo:
         conn.close()
 
         return deleted > 0
+
+
+    def supplier_report(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+            COUNT(*) AS total_suppliers
+        FROM Supplier
+        """
+
+        cursor.execute(query)
+
+        report = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return report

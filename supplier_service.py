@@ -59,3 +59,6 @@ class SupplierService:
         return self.repo.delete_supplier(
             supplier_id
         )
+    def supplier_report(self):
+
+        return self.repo.supplier_report()
