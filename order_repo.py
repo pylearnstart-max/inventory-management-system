@@ -86,3 +86,67 @@ class OrderRepo:
         conn.close()
 
         return order
+
+
+
+    def update_order(self, order_id, quantity, total_amount):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        UPDATE Orders
+        SET quantity = ?,
+            total_amount = ?
+        WHERE order_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (
+                quantity,
+                total_amount,
+                order_id
+            )
+        )
+
+        conn.commit()
+
+        updated = cursor.rowcount
+
+        cursor.close()
+        conn.close()
+
+        if updated > 0:
+            return True
+
+        return False
+
+
+
+    def delete_order(self, order_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        DELETE FROM Orders
+        WHERE order_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (order_id,)
+        )
+
+        conn.commit()
+
+        deleted = cursor.rowcount
+
+        cursor.close()
+        conn.close()
+
+        if deleted > 0:
+            return True
+
+        return False

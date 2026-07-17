@@ -22,7 +22,25 @@ class OrderService:
     def get_all_orders(self):
 
         return self.repo.get_all_orders()
-    
+
+
+
     def search_order(self, order_id):
 
         return self.repo.search_order(order_id)
+
+
+
+    def update_order(self, order_id, quantity, total_amount):
+
+        return self.repo.update_order(
+            order_id,
+            quantity,
+            total_amount
+        )
+
+
+
+    def delete_order(self, order_id):
+
+        return self.repo.delete_order(order_id)

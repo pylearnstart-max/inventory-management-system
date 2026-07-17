@@ -345,3 +345,220 @@ git commit -m "INV-803 View All Orders"
 ✅ Empty order scenario handled correctly.
 
 ✅ Ready for INV-804 – Search Order.
+# Story ID
+
+## INV-804
+
+### Title
+Search Order
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement search_order() in Order Repository
+- [x] Implement search_order() in Order Service
+- [x] Create test_search_order.py
+- [x] Search Order by Order ID
+- [x] Display Order Details
+- [x] Handle "Order Not Found" scenario
+- [x] Test Search Order functionality
+
+---
+
+## Files Updated
+
+- order_repo.py
+- order_service.py
+
+## Files Created
+
+- test_search_order.py
+
+---
+
+## Database
+
+### Table Used
+
+Orders
+
+---
+
+## SQL Query Used
+
+```sql
+SELECT *
+FROM Orders
+WHERE order_id = ?;
+```
+
+---
+
+## Test Result
+
+### Existing Order
+
+```text
+Enter Order ID: 1
+
+========== SEARCH ORDER ==========
+
+(1, 2, 4, 2, 55000.00, 110000.00, 2026-07-17)
+```
+
+### Non-Existing Order
+
+```text
+Enter Order ID: 100
+
+========== SEARCH ORDER ==========
+
+Order Not Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-804 Search Order"
+```
+
+---
+
+## Story Completion
+
+✅ Search Order implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Order searched using Order ID.
+
+✅ "Order Not Found" handled correctly.
+
+✅ Ready for INV-805 – Update Order.
+# Story ID
+
+## INV-805
+
+### Title
+Update Order
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement update_order() in Order Repository
+- [x] Implement update_order() in Order Service
+- [x] Create test_update_order.py
+- [x] Update Order by Order ID
+- [x] Update quantity and total amount
+- [x] Handle "Order Not Found" scenario
+- [x] Test Update Order functionality
+
+---
+
+## Files Updated
+
+- order_repo.py
+- order_service.py
+
+## Files Created
+
+- test_update_order.py
+
+---
+
+## Database
+
+### Table Used
+
+Orders
+
+---
+
+## SQL Query Used
+
+```sql
+UPDATE Orders
+SET quantity = ?,
+    total_amount = ?
+WHERE order_id = ?;
+```
+
+---
+
+## Test Result
+
+### Existing Order Update
+
+```text
+Enter Order ID: 1
+
+Enter New Quantity: 8
+
+Enter New Total Amount: 2317
+
+
+========== UPDATE ORDER ==========
+
+Order Updated Successfully
+```
+
+### Non-Existing Order
+
+```text
+Enter Order ID: 13
+
+Enter New Quantity: 4
+
+Enter New Total Amount: 10987
+
+
+========== UPDATE ORDER ==========
+
+Order Not Found
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-805 Update Order"
+```
+
+---
+
+## Story Completion
+
+✅ Update Order implemented successfully.
+
+✅ Repository Pattern followed.
+
+✅ Order details updated using Order ID.
+
+✅ "Order Not Found" handled correctly.
+
+✅ Ready for INV-806 – Delete Order.
