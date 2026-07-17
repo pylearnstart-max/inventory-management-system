@@ -41,18 +41,19 @@ class PurchaseRepo:
 
         print("Purchase Added Successfully")
 
+
     def get_all_purchases(self):
 
         conn = get_connection()
         cursor = conn.cursor()
 
         cursor.execute(
-        """
-        SELECT *
-        FROM Purchase
-        ORDER BY purchase_id
-        """
-    )
+            """
+            SELECT *
+            FROM Purchase
+            ORDER BY purchase_id
+            """
+        )
 
         purchases = cursor.fetchall()
 
@@ -60,3 +61,25 @@ class PurchaseRepo:
         conn.close()
 
         return purchases
+
+
+    def search_purchase(self, purchase_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            SELECT *
+            FROM Purchase
+            WHERE purchase_id = ?
+            """,
+            (purchase_id,)
+        )
+
+        purchase = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return purchase

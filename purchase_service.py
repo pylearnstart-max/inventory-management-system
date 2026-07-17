@@ -11,3 +11,7 @@ class PurchaseService:
 
     def get_all_purchases(self):
         return self.repo.get_all_purchases()
+    
+    def search_purchase(self, purchase_id):
+
+        return self.repo.search_purchase(purchase_id)
