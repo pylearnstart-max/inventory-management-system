@@ -201,3 +201,35 @@ git commit -m "INV-902 Add Supplier"
 | INV-908 | Testing & Documentation | ⏳ Pending |
 
 **Sprint 9 Progress: 2/8 Completed (25%)**
+# Story ID
+
+## INV-904
+
+### Title
+Search Supplier
+
+### Priority
+High
+
+### Story Points
+2
+
+### Status
+✅ Completed
+
+---
+
+## Tasks
+
+- [x] Implement search_supplier() in Supplier Repository
+- [x] Implement search_supplier() in Supplier Service
+- [x] Create test_search_supplier.py
+- [x] Search supplier details
+- [x] Handle Supplier Not Found scenario
+- [x] Verify supplier records from SQL Server
+
+---
+
+## Implementation Details
+
+### Repository Method

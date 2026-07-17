@@ -3,7 +3,6 @@ from db import get_connection
 
 class SupplierRepo:
 
-
     def add_supplier(self, supplier):
 
         conn = get_connection()
@@ -43,7 +42,6 @@ class SupplierRepo:
         print("Supplier Added Successfully")
 
 
-
     def get_all_suppliers(self):
 
         conn = get_connection()
@@ -63,7 +61,6 @@ class SupplierRepo:
         conn.close()
 
         return suppliers
-
 
 
     def search_supplier(self, supplier_id):
@@ -90,7 +87,6 @@ class SupplierRepo:
         return supplier
 
 
-
     def search_supplier_by_name(self, supplier_name):
 
         conn = get_connection()
@@ -115,7 +111,6 @@ class SupplierRepo:
         return suppliers
 
 
-
     def update_supplier(
             self,
             supplier_id,
@@ -127,7 +122,6 @@ class SupplierRepo:
         conn = get_connection()
         cursor = conn.cursor()
 
-
         query = """
         UPDATE Supplier
         SET
@@ -136,7 +130,6 @@ class SupplierRepo:
             address = ?
         WHERE supplier_id = ?
         """
-
 
         cursor.execute(
             query,
@@ -148,19 +141,36 @@ class SupplierRepo:
             )
         )
 
-
         conn.commit()
 
-
         updated = cursor.rowcount
-
 
         cursor.close()
         conn.close()
 
+        return updated > 0
 
-        if updated > 0:
 
-            return True
+    def delete_supplier(self, supplier_id):
 
-        return False
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        DELETE FROM Supplier
+        WHERE supplier_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (supplier_id,)
+        )
+
+        conn.commit()
+
+        deleted = cursor.rowcount
+
+        cursor.close()
+        conn.close()
+
+        return deleted > 0
