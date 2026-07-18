@@ -108,3 +108,24 @@ class DashboardRepo:
         conn.close()
 
         return summary
+
+    def get_purchase_summary(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+        COUNT(*) AS TotalPurchases,
+        ISNULL(SUM(total_amount), 0) AS TotalPurchaseAmount
+        FROM Purchase
+        """
+
+        cursor.execute(query)
+
+        summary = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return summary

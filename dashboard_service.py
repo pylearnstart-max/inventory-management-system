@@ -27,3 +27,7 @@ class DashboardService:
     def get_sales_summary(self):
 
         return self.repo.get_sales_summary()
+
+    def get_purchase_summary(self):
+
+        return self.repo.get_purchase_summary()
