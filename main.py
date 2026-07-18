@@ -1,32 +1,43 @@
 from user_service import UserService
+from admin_dashboard import admin_dashboard
 
 service = UserService()
 
 while True:
 
-    print("\n======================================")
+    print("\n====================================")
     print(" INVENTORY MANAGEMENT SYSTEM ")
-    print("======================================")
+    print("====================================")
     print("1. Login")
     print("2. Exit")
-    print("======================================")
+    print("====================================")
 
     choice = input("Enter Your Choice: ")
 
     if choice == "1":
 
-        print("\n========== LOGIN ==========\n")
+        username = input("Username: ")
+        password = input("Password: ")
 
-        username = input("Enter Username: ")
-        password = input("Enter Password: ")
+        user = service.login(username, password)
 
-        service.login(username, password)
+        if user:
+
+            role = user.role.lower()
+
+            if role == "admin":
+
+                admin_dashboard()
+
+            else:
+
+                print("\nDashboard for this role will be implemented in upcoming stories.")
 
     elif choice == "2":
 
-        print("\nApplication Closed Successfully")
+        print("Application Closed Successfully")
         break
 
     else:
 
-        print("\nInvalid Choice")
+        print("Invalid Choice")
