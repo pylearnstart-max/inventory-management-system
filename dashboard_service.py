@@ -1,0 +1,14 @@
+from dashboard_repo import DashboardRepo
+
+
+class DashboardService:
+
+
+    def __init__(self):
+
+        self.repo = DashboardRepo()
+
+
+    def get_dashboard_summary(self):
+
+        return self.repo.get_dashboard_summary()

@@ -604,3 +604,102 @@ git commit -m "INV-1004 Search Customer Order"
 **Completed:** 4 / 8 Stories (**50%**)
 
 **Remaining:** INV-1005, INV-1006, INV-1007, INV-1008
+# Story ID
+
+## INV-1005
+
+### Title
+
+Update Customer Order
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Completed
+
+---
+
+## Story Description
+
+As an Admin, I want to update Customer Order details so that order information remains accurate.
+
+---
+
+## Tasks
+
+- [x] Implement update_customer_order() in Repository
+- [x] Implement update_customer_order() in Service
+- [x] Create test_update_customer_order.py
+- [x] Update Customer Order
+- [x] Verify updated data
+
+---
+
+## Files Updated
+
+customer_order_repo.py
+
+customer_order_service.py
+
+---
+
+## Files Created
+
+test_update_customer_order.py
+
+---
+
+## Repository Method
+
+update_customer_order()
+
+---
+
+## Service Method
+
+update_customer_order()
+
+---
+
+## SQL Query
+
+```sql
+UPDATE CustomerOrder
+SET
+    customer_id = ?,
+    order_id = ?,
+    order_date = ?
+WHERE customer_order_id = ?;
+```
+
+---
+
+## Test Command
+
+```bash
+python test_update_customer_order.py
+```
+
+---
+
+## Git Commit
+
+```bash
+git add .
+git commit -m "INV-1005 Update Customer Order"
+```
+
+---
+
+# Story Completion
+
+- ✅ Customer Order updated successfully
+- ✅ Repository Pattern followed
+- ✅ SQL Server verified
