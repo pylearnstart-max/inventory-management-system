@@ -52,3 +52,21 @@ class DashboardRepo:
         conn.close()
 
         return summary
+    def get_customer_summary(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT COUNT(*) AS TotalCustomers
+        FROM Customer
+        """
+
+        cursor.execute(query)
+
+        summary = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return summary

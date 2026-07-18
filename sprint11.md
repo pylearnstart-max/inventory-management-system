@@ -143,3 +143,159 @@ git commit -m "INV-1101 Dashboard Summary Report"
 **Completed:** 1 / 8 Stories (**12.5%**)
 
 **Remaining:** INV-1102 to INV-1108
+# Story ID
+
+## INV-1102
+
+### Title
+
+Product Stock Summary Dashboard
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Completed
+
+---
+
+## Story Description
+
+As an Admin, I want to view the total number of products and the total stock available in the inventory so that I can easily monitor inventory status.
+
+---
+
+## Tasks
+
+- [x] Create Product Stock Summary Repository Method
+- [x] Create Product Stock Summary Service Method
+- [x] Create Product Stock Summary Test File
+- [x] Display Total Products
+- [x] Display Total Stock Quantity
+- [x] Verify SQL Output
+
+---
+
+## Files Updated
+
+```
+dashboard_repo.py
+
+dashboard_service.py
+```
+
+---
+
+## Files Created
+
+```
+test_product_stock_summary.py
+```
+
+---
+
+## Repository Method
+
+```
+get_product_stock_summary()
+```
+
+---
+
+## Service Method
+
+```
+get_product_stock_summary()
+```
+
+---
+
+## SQL Query
+
+```sql
+SELECT
+    COUNT(*) AS TotalProducts,
+    SUM(quantity) AS TotalStock
+FROM Product;
+```
+
+---
+
+## Test Command
+
+```bash
+python test_product_stock_summary.py
+```
+
+---
+
+## Expected Output
+
+```text
+========== PRODUCT STOCK SUMMARY ==========
+
+Total Products : 12
+Total Stock    : 245
+```
+
+*(Values depend on the records available in the Product table.)*
+
+---
+
+## SQL Verification
+
+```sql
+SELECT
+    COUNT(*) AS TotalProducts,
+    SUM(quantity) AS TotalStock
+FROM Product;
+```
+
+---
+
+## Git Commands
+
+```bash
+git add .
+git commit -m "INV-1102 Product Stock Summary Dashboard"
+```
+
+---
+
+## Story Completion
+
+- ✅ Product Stock Summary implemented
+- ✅ Dashboard Repository updated
+- ✅ Dashboard Service updated
+- ✅ Product count displayed
+- ✅ Total stock quantity displayed
+- ✅ SQL Server verification completed
+- ✅ Repository Pattern followed
+- ✅ Testing completed
+
+---
+
+# Sprint 11 Progress
+
+| Story ID | Title | Status |
+|----------|-------------------------------------|--------|
+| INV-1101 | Dashboard Summary Report | ✅ Done |
+| INV-1102 | Product Stock Summary Dashboard | ✅ Done |
+| INV-1103 | Customer Dashboard Summary | ⏳ Pending |
+| INV-1104 | Supplier Dashboard Summary | ⏳ Pending |
+| INV-1105 | Sales Dashboard Summary | ⏳ Pending |
+| INV-1106 | Purchase Dashboard Summary | ⏳ Pending |
+| INV-1107 | Inventory Dashboard Report | ⏳ Pending |
+| INV-1108 | Testing & Documentation | ⏳ Pending |
+
+## Sprint Progress
+
+**Completed:** 2 / 8 Stories (**25%**)
+
+**Remaining:** INV-1103 to INV-1108
