@@ -41,6 +41,7 @@ class UserRepo:
         print("User Added Successfully")
 
 
+
     def login(self, username, password):
 
         conn = get_connection()
@@ -69,6 +70,7 @@ class UserRepo:
         return user
 
 
+
     def search_user(self, user_id):
 
         conn = get_connection()
@@ -91,6 +93,7 @@ class UserRepo:
         conn.close()
 
         return user
+
 
 
     def search_user_by_username(self, username):
@@ -119,17 +122,21 @@ class UserRepo:
         return users
 
 
+
     def update_user(self, user):
 
         conn = get_connection()
         cursor = conn.cursor()
+
 
         cursor.execute(
             "SELECT * FROM Users WHERE user_id = ?",
             (user.user_id,)
         )
 
+
         existing_user = cursor.fetchone()
+
 
         if existing_user is None:
 
@@ -140,6 +147,8 @@ class UserRepo:
 
             return
 
+
+
         query = """
         UPDATE Users
         SET
@@ -148,6 +157,7 @@ class UserRepo:
             role = ?
         WHERE user_id = ?
         """
+
 
         cursor.execute(
             query,
@@ -159,12 +169,16 @@ class UserRepo:
             )
         )
 
+
         conn.commit()
+
 
         print("User Updated Successfully")
 
+
         cursor.close()
         conn.close()
+
 
 
     def delete_user(self, user_id):
@@ -172,12 +186,15 @@ class UserRepo:
         conn = get_connection()
         cursor = conn.cursor()
 
+
         cursor.execute(
             "SELECT * FROM Users WHERE user_id = ?",
             (user_id,)
         )
 
+
         existing_user = cursor.fetchone()
+
 
         if existing_user is None:
 
@@ -188,28 +205,36 @@ class UserRepo:
 
             return
 
+
+
         query = """
         DELETE FROM Users
         WHERE user_id = ?
         """
+
 
         cursor.execute(
             query,
             (user_id,)
         )
 
+
         conn.commit()
+
 
         print("User Deleted Successfully")
 
+
         cursor.close()
         conn.close()
+
 
 
     def get_all_users(self):
 
         conn = get_connection()
         cursor = conn.cursor()
+
 
         query = """
         SELECT
@@ -222,11 +247,52 @@ class UserRepo:
         ORDER BY user_id
         """
 
+
         cursor.execute(query)
 
+
         users = cursor.fetchall()
+
 
         cursor.close()
         conn.close()
 
+
         return users
+
+
+
+    # ==============================
+    # CHANGE PASSWORD - INV-1306
+    # ==============================
+
+    def change_password(self, username, new_password):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+
+        query = """
+        UPDATE Users
+        SET password = ?
+        WHERE username = ?
+        """
+
+
+        cursor.execute(
+            query,
+            (
+                new_password,
+                username
+            )
+        )
+
+
+        conn.commit()
+
+
+        cursor.close()
+        conn.close()
+
+
+        print("Password Changed Successfully")

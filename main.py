@@ -4,11 +4,17 @@ from admin_dashboard import admin_dashboard
 from manager_dashboard import manager_dashboard
 from employee_dashboard import employee_dashboard
 
+from change_password import change_password_screen
+from logout import logout
+
+
 
 service = UserService()
 
 
+
 while True:
+
 
     print("\n====================================")
     print("   INVENTORY MANAGEMENT SYSTEM")
@@ -24,6 +30,7 @@ while True:
 
 
 
+
     if choice == "1":
 
 
@@ -31,11 +38,15 @@ while True:
 
 
         username = input("Username: ")
+
         password = input("Password: ")
 
 
 
-        user = service.login(username, password)
+        user = service.login(
+            username,
+            password
+        )
 
 
 
@@ -45,35 +56,94 @@ while True:
             print("\nLogin Successful")
 
 
-            role = user.role.lower()
+
+            while True:
 
 
 
-            if role == "admin":
+                print("\n================================")
+                print("1. Continue Dashboard")
+                print("2. Change Password")
+                print("3. Logout")
+                print("================================")
 
 
-                admin_dashboard()
-
-
-
-            elif role == "manager":
-
-
-                manager_dashboard()
-
-
-
-            elif role == "employee":
-
-
-                employee_dashboard()
+                option = input(
+                    "Enter Choice: "
+                )
 
 
 
-            else:
+                if option == "1":
 
 
-                print("\nInvalid User Role")
+
+                    role = user.role.lower()
+
+
+
+                    if role == "admin":
+
+
+                        admin_dashboard()
+
+
+
+                    elif role == "manager":
+
+
+                        manager_dashboard()
+
+
+
+                    elif role == "employee":
+
+
+                        employee_dashboard()
+
+
+
+                    else:
+
+
+                        print("\nInvalid User Role")
+
+
+
+
+
+                elif option == "2":
+
+
+
+                    change_password_screen(
+                        service,
+                        username
+                    )
+
+
+
+
+
+                elif option == "3":
+
+
+
+                    logout()
+
+
+                    break
+
+
+
+
+
+                else:
+
+
+                    print("\nInvalid Choice")
+
+
 
 
 
@@ -85,12 +155,17 @@ while True:
 
 
 
+
+
     elif choice == "2":
+
 
 
         print("\nApplication Closed Successfully")
 
+
         break
+
 
 
 
