@@ -1,10 +1,18 @@
+from dashboard_view import show_dashboard
+from low_stock_view import show_low_stock_alert
+from logout import logout
+
+
+
 def manager_dashboard():
 
     while True:
 
+
         print("\n===================================")
         print("       MANAGER DASHBOARD")
         print("===================================")
+
         print("1. Product Management")
         print("2. Supplier Management")
         print("3. Customer Management")
@@ -12,43 +20,72 @@ def manager_dashboard():
         print("5. Sales Management")
         print("6. Order Management")
         print("7. Dashboard")
-        print("8. Logout")
+        print("8. Low Stock Alert")
+        print("9. Logout")
+
         print("===================================")
 
+
         choice = input("Enter Your Choice : ")
+
+
+
 
         if choice == "1":
 
             print("Product Module")
 
+
+
         elif choice == "2":
 
             print("Supplier Module")
+
+
 
         elif choice == "3":
 
             print("Customer Module")
 
+
+
         elif choice == "4":
 
             print("Purchase Module")
+
+
 
         elif choice == "5":
 
             print("Sales Module")
 
+
+
         elif choice == "6":
 
             print("Order Module")
 
+
+
         elif choice == "7":
 
-            print("Dashboard Module")
+            show_dashboard()
+
+
 
         elif choice == "8":
 
-            print("\nLogout Successful")
+            show_low_stock_alert()
+
+
+
+        elif choice == "9":
+
+            logout()
+
             break
+
+
 
         else:
 

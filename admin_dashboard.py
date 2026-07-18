@@ -1,3 +1,8 @@
+from dashboard_view import show_dashboard
+from logout import logout
+
+
+
 def admin_dashboard():
 
     while True:
@@ -5,6 +10,7 @@ def admin_dashboard():
         print("\n===================================")
         print("        ADMIN DASHBOARD")
         print("===================================")
+
         print("1. Product Management")
         print("2. Supplier Management")
         print("3. Customer Management")
@@ -14,46 +20,70 @@ def admin_dashboard():
         print("7. Dashboard")
         print("8. User Management")
         print("9. Logout")
+
         print("===================================")
 
+
         choice = input("Enter Your Choice : ")
+
+
+
 
         if choice == "1":
 
             print("Product Module")
 
+
+
         elif choice == "2":
 
             print("Supplier Module")
+
+
 
         elif choice == "3":
 
             print("Customer Module")
 
+
+
         elif choice == "4":
 
             print("Purchase Module")
+
+
 
         elif choice == "5":
 
             print("Sales Module")
 
+
+
         elif choice == "6":
 
             print("Order Module")
 
+
+
         elif choice == "7":
 
-            print("Dashboard Module")
+            show_dashboard()
+
+
 
         elif choice == "8":
 
             print("User Management Module")
 
+
+
         elif choice == "9":
 
-            print("\nLogout Successful")
+            logout()
+
             break
+
+
 
         else:
 

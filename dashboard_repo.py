@@ -129,3 +129,28 @@ class DashboardRepo:
         conn.close()
 
         return summary
+    
+    def get_stock_value(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+
+        query = """
+        SELECT
+        ISNULL(SUM(quantity * unit_price), 0)
+        FROM Product
+        """
+
+
+        cursor.execute(query)
+
+
+        stock_value = cursor.fetchone()[0]
+
+
+        cursor.close()
+        conn.close()
+
+
+        return stock_value
