@@ -31,3 +31,24 @@ class DashboardRepo:
         conn.close()
 
         return dashboard
+
+    def get_product_stock_summary(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+        COUNT(*) AS TotalProducts,
+        SUM(quantity) AS TotalStock
+        FROM Product
+        """
+
+        cursor.execute(query)
+
+        summary = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return summary
