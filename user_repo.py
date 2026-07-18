@@ -106,7 +106,9 @@ class UserRepo:
 
         cursor.execute(
             query,
-            ('%' + username + '%',)
+            (
+                "%" + username + "%",
+            )
         )
 
         users = cursor.fetchall()
@@ -115,3 +117,41 @@ class UserRepo:
         conn.close()
 
         return users
+
+
+    def update_user(self, user):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        UPDATE Users
+        SET
+            username = ?,
+            password = ?,
+            role = ?
+        WHERE user_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (
+                user.username,
+                user.password,
+                user.role,
+                user.user_id
+            )
+        )
+
+        conn.commit()
+
+        if cursor.rowcount > 0:
+
+            print("User Updated Successfully")
+
+        else:
+
+            print("User Not Found")
+
+        cursor.close()
+        conn.close()

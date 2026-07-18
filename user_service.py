@@ -37,3 +37,7 @@ class UserService:
     def search_user_by_username(self, username):
 
         return self.repo.search_user_by_username(username)
+
+    def update_user(self, user):
+
+        self.repo.update_user(user)
