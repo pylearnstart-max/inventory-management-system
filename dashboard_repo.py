@@ -70,3 +70,21 @@ class DashboardRepo:
         conn.close()
 
         return summary
+    def get_supplier_summary(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT COUNT(*) AS TotalSuppliers
+        FROM Supplier
+        """
+
+        cursor.execute(query)
+
+        summary = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return summary

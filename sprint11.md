@@ -299,3 +299,153 @@ git commit -m "INV-1102 Product Stock Summary Dashboard"
 **Completed:** 2 / 8 Stories (**25%**)
 
 **Remaining:** INV-1103 to INV-1108
+# Story ID
+
+## INV-1103
+
+### Title
+
+Customer Dashboard Summary
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Completed
+
+---
+
+## Story Description
+
+As an Admin, I want to view the total number of customers on the dashboard so that I can monitor customer records in the Inventory Management System.
+
+---
+
+## Tasks
+
+- [x] Create Customer Dashboard Repository Method
+- [x] Create Customer Dashboard Service Method
+- [x] Create Customer Dashboard Test File
+- [x] Display Total Customers
+- [x] Verify SQL Output
+- [x] Test Dashboard Summary
+
+---
+
+## Files Updated
+
+```
+dashboard_repo.py
+
+dashboard_service.py
+```
+
+---
+
+## Files Created
+
+```
+test_customer_dashboard.py
+```
+
+---
+
+## Repository Method
+
+```
+get_customer_summary()
+```
+
+---
+
+## Service Method
+
+```
+get_customer_summary()
+```
+
+---
+
+## SQL Query
+
+```sql
+SELECT COUNT(*) AS TotalCustomers
+FROM Customer;
+```
+
+---
+
+## Test Command
+
+```bash
+python test_customer_dashboard.py
+```
+
+---
+
+## Expected Output
+
+```text
+========== CUSTOMER DASHBOARD ==========
+
+Total Customers : 8
+```
+
+> *(The total depends on the number of customer records in the database.)*
+
+---
+
+## SQL Verification
+
+```sql
+SELECT COUNT(*) AS TotalCustomers
+FROM Customer;
+```
+
+---
+
+## Git Commands
+
+```bash
+git add .
+git commit -m "INV-1103 Customer Dashboard Summary"
+```
+
+---
+
+## Story Completion
+
+- ✅ Customer Dashboard Summary implemented
+- ✅ Dashboard Repository updated
+- ✅ Dashboard Service updated
+- ✅ Customer count displayed
+- ✅ SQL Server verification completed
+- ✅ Repository Pattern followed
+- ✅ Testing completed
+
+---
+
+# Sprint 11 Progress
+
+| Story ID | Title | Status |
+|----------|--------------------------------------|--------|
+| INV-1101 | Dashboard Summary Report | ✅ Done |
+| INV-1102 | Product Stock Summary Dashboard | ✅ Done |
+| INV-1103 | Customer Dashboard Summary | ✅ Done |
+| INV-1104 | Supplier Dashboard Summary | ⏳ Pending |
+| INV-1105 | Sales Dashboard Summary | ⏳ Pending |
+| INV-1106 | Purchase Dashboard Summary | ⏳ Pending |
+| INV-1107 | Inventory Dashboard Report | ⏳ Pending |
+| INV-1108 | Testing & Documentation | ⏳ Pending |
+
+## Sprint Progress
+
+**Completed:** 3 / 8 Stories (**37.5%**)
+
+**Remaining:** INV-1104 to INV-1108
