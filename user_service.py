@@ -45,3 +45,7 @@ class UserService:
     def delete_user(self, user_id):
 
         self.repo.delete_user(user_id)
+
+    def get_all_users(self):
+
+        return self.repo.get_all_users()

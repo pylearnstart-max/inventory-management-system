@@ -204,3 +204,29 @@ class UserRepo:
 
         cursor.close()
         conn.close()
+
+
+    def get_all_users(self):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT
+            user_id,
+            username,
+            password,
+            role,
+            created_date
+        FROM Users
+        ORDER BY user_id
+        """
+
+        cursor.execute(query)
+
+        users = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return users
