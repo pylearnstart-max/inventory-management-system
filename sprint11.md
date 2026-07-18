@@ -447,5 +447,485 @@ git commit -m "INV-1103 Customer Dashboard Summary"
 ## Sprint Progress
 
 **Completed:** 3 / 8 Stories (**37.5%**)
+# Story ID
 
-**Remaining:** INV-1104 to INV-1108
+## INV-1104
+
+### Title
+
+Supplier Dashboard Summary
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+⏳ In Progress
+
+---
+
+## Story Description
+
+As an Admin, I want to view the total number of suppliers on the dashboard so that I can monitor supplier information.
+
+---
+
+## Tasks
+
+- [ ] Create Supplier Dashboard Repository Method
+- [ ] Create Supplier Dashboard Service Method
+- [ ] Create Supplier Dashboard Test File
+- [ ] Display Total Suppliers
+- [ ] Verify SQL Output
+
+---
+
+## Files Updated
+
+dashboard_repo.py
+
+dashboard_service.py
+
+---
+
+## Files Created
+
+test_supplier_dashboard.py
+
+---
+
+## Repository Method
+
+get_supplier_summary()
+
+---
+
+## Service Method
+
+get_supplier_summary()
+
+---
+
+## SQL Query
+
+```sql
+SELECT COUNT(*) AS TotalSuppliers
+FROM Supplier;
+```
+
+---
+
+## Test Command
+
+```bash
+python test_supplier_dashboard.py
+```
+
+---
+
+## Expected Output
+
+```text
+========== SUPPLIER DASHBOARD ==========
+
+Total Suppliers : 5
+```
+
+> *(The value depends on the records in the Supplier table.)*
+
+---
+
+## SQL Verification
+
+```sql
+SELECT COUNT(*) AS TotalSuppliers
+FROM Supplier;
+```
+
+---
+
+## Git Commands
+
+```bash
+git add .
+git commit -m "INV-1104 Supplier Dashboard Summary"
+```
+
+---
+
+## Story Completion
+
+- [ ] Supplier Dashboard Repository implemented
+- [ ] Supplier Dashboard Service implemented
+- [ ] Supplier count displayed
+- [ ] SQL Server verification completed
+- [ ] Repository Pattern followed
+- [ ] Testing completed
+
+---
+
+# Sprint 11 Progress
+
+| Story ID | Title | Status |
+|----------|--------------------------------------|--------|
+| INV-1101 | Dashboard Summary Report | ✅ Done |
+| INV-1102 | Product Stock Summary Dashboard | ✅ Done |
+| INV-1103 | Customer Dashboard Summary | ✅ Done |
+| INV-1104 | Supplier Dashboard Summary | ⏳ In Progress |
+| INV-1105 | Sales Dashboard Summary | ⏳ Pending |
+| INV-1106 | Purchase Dashboard Summary | ⏳ Pending |
+| INV-1107 | Inventory Dashboard Report | ⏳ Pending |
+| INV-1108 | Testing & Documentation | ⏳ Pending |
+
+## Sprint Progress
+
+Completed: **3 / 8 Stories (37.5%)**
+
+Remaining: **INV-1104 to INV-1108**
+
+# Story ID
+
+## INV-1104
+
+### Title
+
+Supplier Dashboard Summary
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Completed
+
+---
+
+## Story Description
+
+As an Admin, I want to view the total number of suppliers on the dashboard so that I can monitor supplier information and inventory resources.
+
+---
+
+## Tasks
+
+- [x] Create Supplier Dashboard Repository Method
+- [x] Create Supplier Dashboard Service Method
+- [x] Create Supplier Dashboard Test File
+- [x] Display Total Suppliers
+- [x] Verify SQL Output
+- [x] Test Dashboard Summary
+
+---
+
+## Files Updated
+
+```
+dashboard_repo.py
+
+dashboard_service.py
+```
+
+---
+
+## Files Created
+
+```
+test_supplier_dashboard.py
+```
+
+---
+
+## Repository Method
+
+```
+get_supplier_summary()
+```
+
+---
+
+## Service Method
+
+```
+get_supplier_summary()
+```
+
+---
+
+## SQL Query
+
+```sql
+SELECT COUNT(*) AS TotalSuppliers
+FROM Supplier;
+```
+
+---
+
+## Test Command
+
+```bash
+python test_supplier_dashboard.py
+```
+
+---
+
+## Expected Output
+
+```text
+========== SUPPLIER DASHBOARD ==========
+
+Total Suppliers : 5
+```
+
+> *(The value depends on the records available in the Supplier table.)*
+
+---
+
+## SQL Verification
+
+```sql
+SELECT COUNT(*) AS TotalSuppliers
+FROM Supplier;
+```
+
+---
+
+## Git Commands
+
+```bash
+git add .
+git commit -m "INV-1104 Supplier Dashboard Summary"
+```
+
+---
+
+## Story Completion
+
+- ✅ Supplier Dashboard Summary implemented
+- ✅ Dashboard Repository updated
+- ✅ Dashboard Service updated
+- ✅ Supplier count displayed
+- ✅ SQL Server verification completed
+- ✅ Repository Pattern followed
+- ✅ Testing completed
+
+---
+
+# Sprint 11 Progress
+
+| Story ID | Title | Status |
+|----------|--------------------------------------|--------|
+| INV-1101 | Dashboard Summary Report | ✅ Done |
+| INV-1102 | Product Stock Summary Dashboard | ✅ Done |
+| INV-1103 | Customer Dashboard Summary | ✅ Done |
+| INV-1104 | Supplier Dashboard Summary | ✅ Done |
+| INV-1105 | Sales Dashboard Summary | ⏳ Pending |
+| INV-1106 | Purchase Dashboard Summary | ⏳ Pending |
+| INV-1107 | Inventory Dashboard Report | ⏳ Pending |
+| INV-1108 | Testing & Documentation | ⏳ Pending |
+
+## Sprint Progress
+
+**Completed:** 4 / 8 Stories (**50%**)
+
+**Remaining:** INV-1105 to INV-1108
+
+# Story ID
+
+## INV-1105
+
+### Title
+
+Sales Dashboard Summary
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+⏳ In Progress
+
+---
+
+## Story Description
+
+As an Admin, I want to view the total number of sales and total sales amount on the dashboard so that I can monitor sales performance.
+
+---
+
+## Tasks
+
+- [ ] Create Sales Dashboard Repository Method
+- [ ] Create Sales Dashboard Service Method
+- [ ] Create Sales Dashboard Test File
+- [ ] Display Total Sales
+- [ ] Display Total Sales Amount
+- [ ] Verify SQL Output
+
+---
+
+## Files Updated
+
+dashboard_repo.py
+
+dashboard_service.py
+
+---
+
+## Files Created
+
+test_sales_dashboard.py
+
+---
+
+## Repository Method
+
+get_sales_summary()
+
+---
+
+## Service Method
+
+get_sales_summary()
+
+---
+
+## Repository Code
+
+```python
+def get_sales_summary(self):
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    query = """
+    SELECT
+        COUNT(*) AS TotalSales,
+        SUM(total_amount) AS TotalSalesAmount
+    FROM Sales
+    """
+
+    cursor.execute(query)
+
+    summary = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    return summary
+```
+
+---
+
+## Service Code
+
+```python
+def get_sales_summary(self):
+
+    return self.repo.get_sales_summary()
+```
+
+---
+
+## Test Program
+
+```python
+from dashboard_service import DashboardService
+
+service = DashboardService()
+
+summary = service.get_sales_summary()
+
+print("\n========== SALES DASHBOARD ==========\n")
+
+print("Total Sales        :", summary[0])
+print("Total Sales Amount :", summary[1])
+```
+
+---
+
+## SQL Query
+
+```sql
+SELECT
+    COUNT(*) AS TotalSales,
+    SUM(total_amount) AS TotalSalesAmount
+FROM Sales;
+```
+
+---
+
+## Test Command
+
+```bash
+python test_sales_dashboard.py
+```
+
+---
+
+## Expected Output
+
+```text
+========== SALES DASHBOARD ==========
+
+Total Sales        : 10
+Total Sales Amount : 325000.00
+```
+
+> *(Values depend on the records in the Sales table.)*
+
+---
+
+## Git Commands
+
+```bash
+git add .
+git commit -m "INV-1105 Sales Dashboard Summary"
+```
+
+---
+
+## Story Completion
+
+- [ ] Sales Dashboard Repository implemented
+- [ ] Sales Dashboard Service implemented
+- [ ] Sales count displayed
+- [ ] Sales amount displayed
+- [ ] SQL Server verification completed
+- [ ] Repository Pattern followed
+- [ ] Testing completed
+
+---
+
+# Sprint 11 Progress
+
+| Story ID | Title | Status |
+|----------|--------------------------------------|--------|
+| INV-1101 | Dashboard Summary Report | ✅ Done |
+| INV-1102 | Product Stock Summary Dashboard | ✅ Done |
+| INV-1103 | Customer Dashboard Summary | ✅ Done |
+| INV-1104 | Supplier Dashboard Summary | ✅ Done |
+| INV-1105 | Sales Dashboard Summary | ⏳ In Progress |
+| INV-1106 | Purchase Dashboard Summary | ⏳ Pending |
+| INV-1107 | Inventory Dashboard Report | ⏳ Pending |
+| INV-1108 | Testing & Documentation | ⏳ Pending |
+
+## Sprint Progress
+
+Completed: **4 / 8 Stories (50%)**
+
+Remaining: **INV-1105 to INV-1108**

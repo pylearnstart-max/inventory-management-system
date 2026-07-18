@@ -23,3 +23,7 @@ class DashboardService:
     def get_supplier_summary(self):
 
         return self.repo.get_supplier_summary()
+
+    def get_sales_summary(self):
+
+        return self.repo.get_sales_summary()
