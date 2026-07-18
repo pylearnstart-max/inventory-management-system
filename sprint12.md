@@ -1,3 +1,11 @@
+# Sprint 12
+
+## Sprint Goal
+
+Develop the complete **User Management Module** for the Inventory Management System by implementing CRUD operations, Login Authentication, Reporting, Testing, and Documentation using Python, SQL Server, and the Repository Pattern.
+
+---
+
 # Story ID
 
 ## INV-1201
@@ -16,68 +24,22 @@ High
 
 ### Status
 
-✅ Completed
+✅ Done
 
----
+### Tasks
 
-## Story Description
+* [x] Create Users Table in SQL Server
+* [x] Create `create_users_table.py`
+* [x] Verify Users Table
+* [x] Create User Model
+* [x] Connect SQL Server Database
 
-As an Admin, I want to create a Users table so that user credentials and roles can be stored for authentication.
+### Acceptance Criteria
 
----
+* Users table created successfully.
+* Database connection verified.
 
-## Tasks
-
-- [x] Create Users table
-- [x] Add Primary Key
-- [x] Add Username field
-- [x] Add Password field
-- [x] Add Role field
-- [x] Add Created Date field
-- [x] Verify table creation
-
----
-
-## File Created
-
-```
-create_users_table.py
-```
-
----
-
-## SQL Query
-
-```sql
-CREATE TABLE Users
-(
-    user_id INT IDENTITY(1,1) PRIMARY KEY,
-    username VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT NULL,
-    role VARCHAR(50) NOT NULL,
-    created_date DATE NOT NULL
-);
-```
-
----
-
-## Test Command
-
-```bash
-python create_users_table.py
-```
-
----
-
-## Verification
-
-```sql
-SELECT * FROM Users;
-```
-
----
-
-## Git Commands
+### Git Commit
 
 ```bash
 git add .
@@ -86,24 +48,87 @@ git commit -m "INV-1201 Create Users Table"
 
 ---
 
-## Story Completion
+# Story ID
 
-- ✅ Users table created
-- ✅ Primary key configured
-- ✅ Unique username constraint added
-- ✅ SQL Server verification completed
-# Sprint 12 Progress
+## INV-1202
 
-| Story ID | Title | Status |
-|----------|----------------------------------|--------|
-| INV-1201 | Create Users Table | ✅ Done |
-| INV-1202 | Add User Module | ✅ Done |
-| INV-1203 | User Login Authentication | ✅ Done |
-| INV-1204 | Search User | ✅ Done |
-| INV-1205 | Update User | ✅ Done |
-| INV-1206 | Delete User | ⏳ Pending |
-| INV-1207 | User Report | ⏳ Pending |
-| INV-1208 | Testing & Documentation | ⏳ Pending |
+### Title
+
+Add User
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Done
+
+### Tasks
+
+* [x] Create User Repository
+* [x] Create User Service
+* [x] Create Add User Test Program
+* [x] Insert User into Database
+* [x] Verify SQL Data
+
+### Acceptance Criteria
+
+* New user added successfully.
+* User stored in SQL Server.
+
+### Git Commit
+
+```bash
+git add .
+git commit -m "INV-1202 Add User"
+```
+
+---
+
+# Story ID
+
+## INV-1203
+
+### Title
+
+User Login Authentication
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Done
+
+### Tasks
+
+* [x] Create Login Repository
+* [x] Create Login Service
+* [x] Create Login Test Program
+* [x] Validate Username
+* [x] Validate Password
+
+### Acceptance Criteria
+
+* Valid login accepted.
+* Invalid login rejected.
+
+### Git Commit
+
+```bash
+git add .
+git commit -m "INV-1203 User Login Authentication"
+```
 
 ---
 
@@ -125,77 +150,21 @@ High
 
 ### Status
 
-✅ Completed
+✅ Done
 
----
+### Tasks
 
-## Story Description
+* [x] Search User by User ID
+* [x] Search User by Username
+* [x] Create Search Test Program
+* [x] Verify SQL Data
 
-As an Admin, I want to search a user by User ID so that I can quickly retrieve user details from the system.
+### Acceptance Criteria
 
----
+* Existing user displayed.
+* Invalid User ID returns "User Not Found".
 
-## Tasks Completed
-
-- [x] Search User Repository Method
-- [x] Search User Service Method
-- [x] Test Program Created
-- [x] Search by User ID
-- [x] Search by Username
-- [x] SQL Verification Completed
-- [x] Testing Completed
-
----
-
-## Files Updated
-
-```
-user_repo.py
-
-user_service.py
-```
-
----
-
-## Files Created
-
-```
-test_search_user.py
-```
-
----
-
-## Repository Methods
-
-```
-search_user()
-
-search_user_by_username()
-```
-
----
-
-## Service Methods
-
-```
-search_user()
-
-search_user_by_username()
-```
-
----
-
-## SQL Query
-
-```sql
-SELECT *
-FROM Users
-WHERE user_id = ?;
-```
-
----
-
-## Git Commit
+### Git Commit
 
 ```bash
 git add .
@@ -222,77 +191,22 @@ High
 
 ### Status
 
-✅ Completed
+✅ Done
 
----
+### Tasks
 
-## Story Description
+* [x] Create Update Repository Method
+* [x] Create Update Service
+* [x] Create Update Test Program
+* [x] Update User Details
+* [x] Verify SQL Data
 
-As an Admin, I want to update existing user details so that user information remains accurate and up to date.
+### Acceptance Criteria
 
----
+* User updated successfully.
+* Updated data reflected in SQL Server.
 
-## Tasks Completed
-
-- [x] Update User Repository Method
-- [x] Update User Service Method
-- [x] Create Update User Test Program
-- [x] Update Username
-- [x] Update Password
-- [x] Update Role
-- [x] Verify SQL Data
-- [x] Testing Completed
-
----
-
-## Files Updated
-
-```
-user_repo.py
-
-user_service.py
-```
-
----
-
-## Files Created
-
-```
-test_update_user.py
-```
-
----
-
-## Repository Method
-
-```
-update_user()
-```
-
----
-
-## Service Method
-
-```
-update_user()
-```
-
----
-
-## SQL Query
-
-```sql
-UPDATE Users
-SET
-    username = ?,
-    password = ?,
-    role = ?
-WHERE user_id = ?;
-```
-
----
-
-## Git Commit
+### Git Commit
 
 ```bash
 git add .
@@ -301,31 +215,167 @@ git commit -m "INV-1205 Update User"
 
 ---
 
-# Sprint Statistics
+# Story ID
 
-- **Sprint Number:** 12
-- **Total Stories:** 8
-- **Completed Stories:** 5
-- **Pending Stories:** 3
-- **Sprint Completion:** **62.5%**
+## INV-1206
+
+### Title
+
+Delete User
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Done
+
+### Tasks
+
+* [x] Create Delete Repository Method
+* [x] Create Delete Service
+* [x] Create Delete Test Program
+* [x] Delete User by ID
+* [x] Verify SQL Data
+
+### Acceptance Criteria
+
+* User deleted successfully.
+* Invalid User ID displays "User Not Found".
+
+### Git Commit
+
+```bash
+git add .
+git commit -m "INV-1206 Delete User"
+```
 
 ---
 
-## Sprint Progress
+# Story ID
 
-| Story ID | Title | Status |
-|----------|----------------------------------|--------|
-| INV-1201 | Create Users Table | ✅ Done |
-| INV-1202 | Add User Module | ✅ Done |
-| INV-1203 | User Login Authentication | ✅ Done |
-| INV-1204 | Search User | ✅ Done |
-| INV-1205 | Update User | ✅ Done |
-| INV-1206 | Delete User | ⏳ Pending |
-| INV-1207 | User Report | ⏳ Pending |
-| INV-1208 | Testing & Documentation | ⏳ Pending |
+## INV-1207
 
-## Sprint Status
+### Title
 
-**Completed:** **5 / 8 Stories (62.5%)**
+User Report
 
-**Remaining:** **INV-1206 to INV-1208**
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Done
+
+### Tasks
+
+* [x] Create Get All Users Repository
+* [x] Create User Report Service
+* [x] Create Report Test Program
+* [x] Display All Users
+* [x] Verify SQL Data
+
+### Acceptance Criteria
+
+* Displays all users.
+* Report ordered by User ID.
+
+### Git Commit
+
+```bash
+git add .
+git commit -m "INV-1207 User Report"
+```
+
+---
+
+# Story ID
+
+## INV-1208
+
+### Title
+
+User Module Testing and Documentation
+
+### Priority
+
+High
+
+### Story Points
+
+2
+
+### Status
+
+✅ Done
+
+### Tasks
+
+* [x] Test Add User
+* [x] Test Login
+* [x] Test Search User
+* [x] Test Update User
+* [x] Test Delete User
+* [x] Test User Report
+* [x] Verify SQL Server Data
+* [x] Update Sprint Documentation
+* [x] Complete Final Testing
+
+### Acceptance Criteria
+
+* All User module functionalities tested successfully.
+* SQL Server data verified.
+* Documentation completed.
+
+### Git Commit
+
+```bash
+git add .
+git commit -m "INV-1208 Complete User Management Module"
+```
+
+---
+
+# Sprint 12 Summary
+
+| Story ID | Story                               | Status |
+| -------- | ----------------------------------- | ------ |
+| INV-1201 | Create Users Table                  | ✅ Done |
+| INV-1202 | Add User                            | ✅ Done |
+| INV-1203 | User Login Authentication           | ✅ Done |
+| INV-1204 | Search User                         | ✅ Done |
+| INV-1205 | Update User                         | ✅ Done |
+| INV-1206 | Delete User                         | ✅ Done |
+| INV-1207 | User Report                         | ✅ Done |
+| INV-1208 | User Module Testing & Documentation | ✅ Done |
+
+---
+
+# Sprint Outcome
+
+Successfully completed the **User Management Module** using Python, SQL Server, and the Repository Pattern.
+
+### Features Implemented
+
+* ✅ Users Table Creation
+* ✅ Add User
+* ✅ User Login Authentication
+* ✅ Search User by ID
+* ✅ Search User by Username
+* ✅ Update User
+* ✅ Delete User
+* ✅ User Report
+* ✅ Module Testing
+* ✅ Sprint Documentation
+
+**Sprint Status:** ✅ Completed Successfully
