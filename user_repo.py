@@ -67,3 +67,51 @@ class UserRepo:
         conn.close()
 
         return user
+
+
+    def search_user(self, user_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT *
+        FROM Users
+        WHERE user_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (user_id,)
+        )
+
+        user = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        return user
+
+
+    def search_user_by_username(self, username):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        query = """
+        SELECT *
+        FROM Users
+        WHERE username LIKE ?
+        """
+
+        cursor.execute(
+            query,
+            ('%' + username + '%',)
+        )
+
+        users = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return users
