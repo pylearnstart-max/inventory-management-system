@@ -41,3 +41,7 @@ class UserService:
     def update_user(self, user):
 
         self.repo.update_user(user)
+
+    def delete_user(self, user_id):
+
+        self.repo.delete_user(user_id)

@@ -124,6 +124,22 @@ class UserRepo:
         conn = get_connection()
         cursor = conn.cursor()
 
+        cursor.execute(
+            "SELECT * FROM Users WHERE user_id = ?",
+            (user.user_id,)
+        )
+
+        existing_user = cursor.fetchone()
+
+        if existing_user is None:
+
+            print("User Not Found")
+
+            cursor.close()
+            conn.close()
+
+            return
+
         query = """
         UPDATE Users
         SET
@@ -145,13 +161,46 @@ class UserRepo:
 
         conn.commit()
 
-        if cursor.rowcount > 0:
+        print("User Updated Successfully")
 
-            print("User Updated Successfully")
+        cursor.close()
+        conn.close()
 
-        else:
+
+    def delete_user(self, user_id):
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "SELECT * FROM Users WHERE user_id = ?",
+            (user_id,)
+        )
+
+        existing_user = cursor.fetchone()
+
+        if existing_user is None:
 
             print("User Not Found")
+
+            cursor.close()
+            conn.close()
+
+            return
+
+        query = """
+        DELETE FROM Users
+        WHERE user_id = ?
+        """
+
+        cursor.execute(
+            query,
+            (user_id,)
+        )
+
+        conn.commit()
+
+        print("User Deleted Successfully")
 
         cursor.close()
         conn.close()
