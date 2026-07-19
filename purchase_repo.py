@@ -3,27 +3,30 @@ from db import get_connection
 
 class PurchaseRepo:
 
+
     def add_purchase(self, purchase):
 
         conn = get_connection()
         cursor = conn.cursor()
 
+        query = """
+        INSERT INTO Purchase
+        (
+            product_id,
+            supplier_id,
+            quantity,
+            unit_price,
+            total_amount,
+            purchase_date
+        )
+        VALUES
+        (
+            ?, ?, ?, ?, ?, ?
+        )
+        """
+
         cursor.execute(
-            """
-            INSERT INTO Purchase
-            (
-                product_id,
-                supplier_id,
-                quantity,
-                unit_price,
-                total_amount,
-                purchase_date
-            )
-            VALUES
-            (
-                ?, ?, ?, ?, ?, ?
-            )
-            """,
+            query,
             (
                 purchase.product_id,
                 purchase.supplier_id,
@@ -47,13 +50,13 @@ class PurchaseRepo:
         conn = get_connection()
         cursor = conn.cursor()
 
-        cursor.execute(
-            """
-            SELECT *
-            FROM Purchase
-            ORDER BY purchase_id
-            """
-        )
+        query = """
+        SELECT *
+        FROM Purchase
+        ORDER BY purchase_id
+        """
+
+        cursor.execute(query)
 
         purchases = cursor.fetchall()
 
@@ -68,12 +71,14 @@ class PurchaseRepo:
         conn = get_connection()
         cursor = conn.cursor()
 
+        query = """
+        SELECT *
+        FROM Purchase
+        WHERE purchase_id = ?
+        """
+
         cursor.execute(
-            """
-            SELECT *
-            FROM Purchase
-            WHERE purchase_id = ?
-            """,
+            query,
             (purchase_id,)
         )
 
@@ -114,10 +119,7 @@ class PurchaseRepo:
         cursor.close()
         conn.close()
 
-        if updated > 0:
-            return True
-
-        return False
+        return updated > 0
 
 
     def delete_purchase(self, purchase_id):
@@ -142,10 +144,7 @@ class PurchaseRepo:
         cursor.close()
         conn.close()
 
-        if deleted > 0:
-            return True
-
-        return False
+        return deleted > 0
 
 
     def purchase_report(self):
@@ -155,8 +154,8 @@ class PurchaseRepo:
 
         query = """
         SELECT
-            COUNT(purchase_id) AS total_purchases,
-            SUM(total_amount) AS total_purchase_amount
+            COUNT(purchase_id) AS TotalPurchases,
+            ISNULL(SUM(total_amount), 0) AS TotalPurchaseAmount
         FROM Purchase
         """
 
