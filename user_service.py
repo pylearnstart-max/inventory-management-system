@@ -1,13 +1,13 @@
+import bcrypt
+
 from user_repo import UserRepo
 
 
 class UserService:
 
-
     def __init__(self):
 
         self.repo = UserRepo()
-
 
 
     # ==========================
@@ -16,8 +16,14 @@ class UserService:
 
     def add_user(self, user):
 
-        return self.repo.add_user(user)
+        hashed_password = bcrypt.hashpw(
+            user.password.encode("utf-8"),
+            bcrypt.gensalt()
+        ).decode("utf-8")
 
+        user.password = hashed_password
+
+        return self.repo.add_user(user)
 
 
     # ==========================
@@ -26,13 +32,24 @@ class UserService:
 
     def login(self, username, password):
 
-        user = self.repo.login(
-            username,
-            password
-        )
+        user = self.repo.search_user_by_username(username)
 
-        return user
+        if user is None:
 
+            return None
+
+        stored_password = user[2]
+
+        if bcrypt.checkpw(
+
+            password.encode("utf-8"),
+            stored_password.encode("utf-8")
+
+        ):
+
+            return user
+
+        return None
 
 
     # ==========================
@@ -41,10 +58,7 @@ class UserService:
 
     def search_user(self, user_id):
 
-        return self.repo.search_user(
-            user_id
-        )
-
+        return self.repo.search_user(user_id)
 
 
     # ==========================
@@ -53,10 +67,7 @@ class UserService:
 
     def search_user_by_username(self, username):
 
-        return self.repo.search_user_by_username(
-            username
-        )
-
+        return self.repo.search_user_by_username(username)
 
 
     # ==========================
@@ -65,10 +76,7 @@ class UserService:
 
     def update_user(self, user):
 
-        return self.repo.update_user(
-            user
-        )
-
+        return self.repo.update_user(user)
 
 
     # ==========================
@@ -77,10 +85,7 @@ class UserService:
 
     def delete_user(self, user_id):
 
-        return self.repo.delete_user(
-            user_id
-        )
-
+        return self.repo.delete_user(user_id)
 
 
     # ==========================
@@ -92,42 +97,48 @@ class UserService:
         return self.repo.get_all_users()
 
 
-
     # ==========================
     # CHANGE PASSWORD
-    # INV-1306
     # ==========================
 
     def change_password(
-            self,
-            username,
-            old_password,
-            new_password
-        ):
 
+        self,
+        username,
+        old_password,
+        new_password
 
-        # Verify old password
+    ):
 
-        user = self.repo.login(
-            username,
-            old_password
-        )
-
-
+        user = self.repo.search_user_by_username(username)
 
         if user is None:
 
             return False
 
+        stored_password = user[2]
 
+        if not bcrypt.checkpw(
 
-        # Update new password
+            old_password.encode("utf-8"),
+            stored_password.encode("utf-8")
+
+        ):
+
+            return False
+
+        hashed_password = bcrypt.hashpw(
+
+            new_password.encode("utf-8"),
+            bcrypt.gensalt()
+
+        ).decode("utf-8")
 
         self.repo.change_password(
+
             username,
-            new_password
+            hashed_password
+
         )
-
-
 
         return True

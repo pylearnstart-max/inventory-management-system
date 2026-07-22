@@ -1,0 +1,198 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Inventory Management System API",
+    "description": "REST API Documentation",
+    "version": "1.0"
+  },
+  "host": "127.0.0.1:5000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+
+    "/": {
+      "get": {
+        "summary": "Home API",
+        "responses": {
+          "200": {
+            "description": "Application Running"
+          }
+        }
+      }
+    },
+
+    "/analytics/category-sales": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Category Wise Sales",
+        "description": "Returns total sales grouped by category.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/product-sales": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Product Wise Sales",
+        "description": "Returns total sales grouped by product.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/customer-sales": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Customer Wise Sales",
+        "description": "Returns total sales grouped by customer.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/monthly-sales": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Monthly Sales Trend",
+        "description": "Returns monthly sales report.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/dashboard-summary": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Dashboard Summary",
+        "description": "Returns dashboard KPI summary.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/top-products": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top 5 Products",
+        "description": "Returns top five products based on sales.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/top-customers": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Top 5 Customers",
+        "description": "Returns top five customers based on sales.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/highest-sale": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Highest Sale",
+        "description": "Returns highest sale record.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/lowest-sale": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Lowest Sale",
+        "description": "Returns lowest sale record.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/sales-summary": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Sales Summary",
+        "description": "Returns total orders, total sales, quantity and average sale.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+
+    "/analytics/dashboard": {
+      "get": {
+        "tags": [
+          "Analytics"
+        ],
+        "summary": "Complete Dashboard",
+        "description": "Returns complete analytics dashboard.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+
+  }
+}

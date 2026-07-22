@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Sales Analytics Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+
+body{
+    font-family: Arial;
+    margin:20px;
+    background:#f4f6f8;
+}
+
+
+h1{
+    text-align:center;
+}
+
+
+.card{
+
+    display:inline-block;
+    background:white;
+    padding:20px;
+    margin:10px;
+    width:180px;
+    text-align:center;
+    border-radius:10px;
+}
+
+
+.card h3{
+    color:#555;
+}
+
+
+.value{
+
+    font-size:22px;
+    font-weight:bold;
+
+}
+
+
+canvas{
+
+    background:white;
+    margin:20px;
+    padding:20px;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<h1>
+Sales Analytics Dashboard
+</h1>
+
+
+
+<div class="card">
+<h3>Total Sales</h3>
+<p class="value" id="sales"></p>
+</div>
+
+
+
+<div class="card">
+<h3>Total Orders</h3>
+<p class="value" id="orders"></p>
+</div>
+
+
+
+<div class="card">
+<h3>Top Product</h3>
+<p class="value" id="product"></p>
+</div>
+
+
+
+<div class="card">
+<h3>Total Quantity</h3>
+<p class="value" id="quantity"></p>
+</div>
+
+
+
+<div class="card">
+<h3>Average Sale</h3>
+<p class="value" id="average"></p>
+</div>
+
+
+
+<div class="card">
+<h3>Top Customer</h3>
+<p class="value" id="customer"></p>
+</div>
+
+
+
+
+<h2>Category Sales</h2>
+
+<canvas id="categoryChart"
+width="800"
+height="400">
+</canvas>
+
+
+
+
+<h2>Top Products</h2>
+
+<canvas id="productChart"
+width="800"
+height="400">
+</canvas>
+
+
+
+
+<h2>Monthly Sales</h2>
+
+<canvas id="monthlyChart"
+width="800"
+height="400">
+</canvas>
+
+
+
+
+<h2>Customer Sales</h2>
+
+<canvas id="customerChart"
+width="800"
+height="400">
+</canvas>
+
+
+
+
+
+<script>
+
+
+fetch("/analytics/dashboard")
+
+
+.then(response=>response.json())
+
+
+.then(data=>{
+
+
+
+// =====================
+// SUMMARY CARDS
+// =====================
+
+
+document.getElementById("sales").innerHTML =
+data.summary.total_sales;
+
+
+document.getElementById("orders").innerHTML =
+data.summary.total_orders;
+
+
+document.getElementById("product").innerHTML =
+data.summary.top_product;
+
+
+document.getElementById("quantity").innerHTML =
+data.summary.total_quantity;
+
+
+document.getElementById("average").innerHTML =
+data.summary.average_sale;
+
+
+document.getElementById("customer").innerHTML =
+data.summary.top_customer;
+
+
+
+
+
+
+// =====================
+// CATEGORY SALES CHART
+// =====================
+
+
+new Chart(
+
+document.getElementById("categoryChart"),
+
+{
+
+type:"bar",
+
+data:{
+
+
+labels:data.category_sales.map(
+x=>x.Category
+),
+
+
+datasets:[{
+
+label:"Category Sales",
+
+data:data.category_sales.map(
+x=>x.TotalAmount
+)
+
+}]
+
+
+},
+
+
+options:{
+
+plugins:{
+
+title:{
+
+display:true,
+
+text:"Category Wise Sales"
+
+}
+
+}
+
+}
+
+}
+
+);
+
+
+
+
+
+
+
+// =====================
+// PRODUCT SALES CHART
+// =====================
+
+
+new Chart(
+
+document.getElementById("productChart"),
+
+{
+
+type:"pie",
+
+data:{
+
+
+labels:data.top_products.map(
+x=>x.Product
+),
+
+
+datasets:[{
+
+label:"Product Sales",
+
+data:data.top_products.map(
+x=>x.TotalAmount
+)
+
+}]
+
+
+},
+
+
+options:{
+
+plugins:{
+
+title:{
+
+display:true,
+
+text:"Top Selling Products"
+
+}
+
+}
+
+}
+
+
+}
+
+);
+
+
+
+
+
+
+
+// =====================
+// MONTHLY SALES CHART
+// =====================
+
+
+new Chart(
+
+document.getElementById("monthlyChart"),
+
+{
+
+type:"line",
+
+
+data:{
+
+
+labels:data.monthly_sales.map(
+x=>x.SaleDate
+),
+
+
+
+datasets:[{
+
+label:"Monthly Sales",
+
+data:data.monthly_sales.map(
+x=>x.TotalAmount
+)
+
+}]
+
+
+},
+
+
+options:{
+
+plugins:{
+
+title:{
+
+display:true,
+
+text:"Monthly Sales Trend"
+
+}
+
+}
+
+}
+
+
+}
+
+);
+
+
+
+
+
+
+
+// =====================
+// CUSTOMER SALES CHART
+// =====================
+
+
+new Chart(
+
+document.getElementById("customerChart"),
+
+{
+
+type:"bar",
+
+
+data:{
+
+
+labels:data.customer_sales.map(
+x=>x.Customer
+),
+
+
+datasets:[{
+
+label:"Customer Sales",
+
+data:data.customer_sales.map(
+x=>x.TotalAmount
+)
+
+}]
+
+
+},
+
+
+options:{
+
+plugins:{
+
+title:{
+
+display:true,
+
+text:"Customer Wise Sales"
+
+}
+
+}
+
+}
+
+
+}
+
+);
+
+
+
+});
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

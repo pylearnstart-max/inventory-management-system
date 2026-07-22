@@ -1,0 +1,11 @@
+SaleID,Product,Category,Customer,Quantity,Price,SaleDate
+1,Laptop,Electronics,Rahul,2,55000,2026-07-01
+2,Mouse,Electronics,Priya,5,500,2026-07-02
+3,Keyboard,Electronics,Amit,3,1200,2026-07-03
+4,Chair,Furniture,Ravi,2,4500,2026-07-04
+5,Table,Furniture,Sneha,1,8000,2026-07-05
+6,Monitor,Electronics,Kiran,2,15000,2026-07-06
+7,Printer,Electronics,Meena,1,12000,2026-07-07
+8,Desk,Furniture,Arjun,1,7000,2026-07-08
+9,Headphones,Electronics,Pooja,4,2500,2026-07-09
+10,Webcam,Electronics,Anil,3,3000,2026-07-10
